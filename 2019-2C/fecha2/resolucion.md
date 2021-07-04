@@ -1,5 +1,6 @@
 1) Escriba un programa (desde la inicialización hasta la liberación de los recursos) que reciba paquetes de la forma nnn+nn+....+nnnn= (numeros separados por +, seguidos de =) e imprima el resultado de la suma de cada paquete por pantalla. Al recibir un paquete vacío (“=”) debe cerrarse ordenadamente. No considere errores. .
 
+**CON PAQUETE SE REFIERE A ARCHIVO?**
 
 
 2) Explique breve y concretamente qué es f:
@@ -33,8 +34,8 @@ a eventos y, en particular, en entornos de interfaz gráfica (GUIs).
 
 **respuesta en final del 1C**
 
-7) Considere la estructura struct ejemplo { int a; char b;}. ¿Es verdad que sizeof (ejemplo)=sizeof(a) +sizeof(b)? Justifique.
-
+7) Considere la estructura struct ejemplo { int a; char b;}. ¿Es verdad que sizeof (ejemplo)=sizeof(a) +sizeof(b)? Justifique.  
+Esto no es verdad ya que las variables dentro del struct se guardan en memoria en direcciones multiplos de 4, con lo cual size(int) devolvera un multiplo de 4, y size(a) + size(b) = 5. **ver esta respuesta del tp0**.
 
 8) ¿En qué consiste el patrón de diseño RAII? Ejemplifique.
 
@@ -46,3 +47,4 @@ a eventos y, en particular, en entornos de interfaz gráfica (GUIs).
 devuelva una nueva lista duplicando los elementos de la primera que no están en la
 segunda:
 std::list<T> DobleSiNo(std::list<T> a,std::list<T> b);
+**Resuelto**
