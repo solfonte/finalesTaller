@@ -47,7 +47,7 @@ Si __CLASE__ ya fue definido, entonces ejecuta directamente a la directiva ```#e
     ```
   **c) Definición de un caracter solamente visible en el módulo donde se define.**  
   ```
-  char c = 'a';
+  static char c = 'a';
   ```
 
 

@@ -1,4 +1,5 @@
 # Finales de taller de programacion 75.42
+Resueltos de finales del curso Veiga.
 
 Temas:
 * sockets
@@ -6,6 +7,8 @@ Temas:
 * strings
 * clases c++
 
+Referencias:
+Diapositivas del curso Veiga.
 
 # Lenguaje C y C++
 
@@ -105,7 +108,48 @@ Las funciones que realiza son:
 * connect: para conectar el socket con el servidor. Es bloqueante.
 * cerrar un socket
 
-* para cerrar una conexion, se hace *shutdown* y *close*. Tipos de shut down:
+Para cerrar una conexion, se hace *shutdown* y *close*. Tipos de shut down:
   - envio: SHUT_WR
   - recepción: SHUT_RD
   - ambos: SHUT_RDWR
+
+# Archivos
+
+Para abrir un archivo:
+```
+FILE *fopen(const char *path, const char *modo);
+```
+Para cerrarlo:
+```
+int fclose(FILE *stream);
+```
+Modos de aperura de archivos:
+* "r": lectura. El archivo debe existir.
+* "w": Escritura (crea el archivos si no existe; sobreescribe uno existente).
+* "a": Append (crea el archivo si no existe. Si existe continúa al final).
+* "r+": Lectura y escritura, empieza al principio. El archivo debe existir.
+* "w+": Lectura y escritura (sobreescribe el archivo si existe).
+* "a+": Lectura y escritura (hace append si existe el archivo).
+Para archivos binarios:
+* "b": Para lectura escritura de archivos binarios (usar con alguno de los anteriores).
+* "t": Para lectura escritura de archivos en modo texto.
+
+Mas funciones:
+```
+int scanf(const char *format, ...);// esta capaz no
+int fgetc(FILE *stream);
+int fputc(int char, FILE *stream):
+char *fgets(char *str, int n, FILE *stream):
+int fputs(const char *str, FILE *stream):
+size_t fread(void *ptr, size_t tam_elemento, size_t cant_elem, FILE *stream);
+size_t fwrite(const void *ptr, size_t tam_elemento, size_t cant_elem, FILE *stream):
+int fseek(FILE *stream, long int offset, int desde):
+  ○ SEEK_SET: Inicio
+  ○ SEEK_CUR: Posición actual
+  ○ SEEK_END: Fin
+void rewind(FILE *stream):
+long int ftell(FILE *stream);
+int fclose(FILE *stream);
+int feof(FILE *stream);
+ftruncate(FILE *stream, long int offset);
+```
