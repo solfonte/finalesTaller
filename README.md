@@ -1,12 +1,6 @@
 # Finales de taller de programacion 75.42
 Resueltos de finales del curso Veiga.
 
-Temas:
-* sockets
-* archivos
-* strings
-* clases c++
-
 Referencias:
 Diapositivas del curso Veiga.
 
@@ -68,6 +62,10 @@ void f() {
 ```
 ## Compilacion
 
+https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
+
+## Clases en c++
+
 # Sockets (TCP)
 * Servicio: port
 * ip: host
@@ -92,6 +90,7 @@ nueva conexión.
 * cerrar un socket
 
 * Ademas tiene dos sockets: aceptador y peer. El primero acepta las conexiones y el segundo es unico para comunicarse con cada cliente conectado.
+
 **Cliente**
 
 ```
@@ -153,3 +152,4 @@ int fclose(FILE *stream);
 int feof(FILE *stream);
 ftruncate(FILE *stream, long int offset);
 ```
+https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
