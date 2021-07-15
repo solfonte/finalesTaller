@@ -41,7 +41,7 @@ int main(int argc, char const *argv[]) {
   freeaddrinfo(resultados);
 
   ssize_t bytes_rcv = 0;
-  bool termine = false, error = false;
+  bool termine = false, error = false, fin = false;
   char buffer[200];
   size_t length = 200;
 
@@ -56,14 +56,27 @@ int main(int argc, char const *argv[]) {
       error = true;
     }else {
       for (int i = 0; i < bytes_rcv; i += 2){
-        acumulador += buffer[i];
+        if (buffer[i] != 'F' && buffer[i] != 'I' && buffer[i] != 'N'){
+          acumulador += buffer[i];
+        }else{
+          fin = true;
+        }
       }
       bytes_rcv = 0;
     }
   }
-  for (int i = 0; i < bytes_rcv; i += 2){
-    acumulador += buffer[i];
+
+  if (!fin){
+    for (int i = 0; i < bytes_rcv; i += 2){
+      if (buffer[i] != 'F' && buffer[i] != 'I' && buffer[i] != 'N'){
+        acumulador += buffer[i];
+      }else{
+        fin = true;
+      }
+    }
   }
+
+
   printf("la suma es: %i", acumulador);
 
   shutdown(socket_fd,SHUT_RDWR);

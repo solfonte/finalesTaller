@@ -1,6 +1,6 @@
 **1) Declare la clase Número para encapsular una cadena numérica larga. Incluya al menos:   Constructor(unsigned long), Constructor default y Constructor move; Operador <<, (), =, long y ++(int). Implemente el operador >>.**
 
-
+guardado como Numero.h  
 
 **2) ¿Qué significa que una función es blocante?¿Cómo subsanaría esa limitación en término de mantener el programa ‘vivo’ ?**  
 en el final de la primera fecha esta la respuesta
@@ -35,9 +35,20 @@ Si __CLASE__ ya fue definido, entonces ejecuta directamente a la directiva ```#e
 
 
 **7) Escriba las siguientes definiciones/declaraciones:**  
-  **a) Definición de una la función SUMA, que tome dos enteros largos con signo y devuelva su suma. Esta función sólo debe ser visible en el módulo donde se la define.**
-  **b) Declaración de un puntero a puntero a entero sin signo.**
-  **c) Definición de un caracter solamente visible en el módulo donde se define.**
+  **a) Definición de una la función SUMA, que tome dos enteros largos con signo y devuelva su suma. Esta función sólo debe ser visible en el módulo donde se la define.**  
+  ```
+  static long int SUMA(long int numero, long int otroNumero){
+    return numero + otroNumero;
+  }
+  ```
+  **b) Declaración de un puntero a puntero a entero sin signo.**  
+    ```
+    unsigned int **p;
+    ```
+  **c) Definición de un caracter solamente visible en el módulo donde se define.**  
+  ```
+  char c = 'a';
+  ```
 
 
 
