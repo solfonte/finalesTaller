@@ -14,10 +14,7 @@ Un constructor por copia en c++ es un tipo de constructor de clase que devuelve 
 
   **Chequear esta respuesta**
 
-  **2) Escriba una función ISO C llamada Replicar que reciba 1 cadena (S), dos índices (I1 e I2) y
-  una cantidad (Q). La función debe retornar una copia de S salvo los caracteres que se
-  encuentran entre los índices I1 e I2 que serán duplicados Q veces.
-  Ej. replicar(“Hola”, 1, 2, 3) retorna “Hololola”.**  
+  **2) Escriba una función ISO C llamada Replicar que reciba 1 cadena (S), dos índices (I1 e I2) y una cantidad (Q). La función debe retornar una copia de S salvo los caracteres que se encuentran entre los índices I1 e I2 que serán duplicados Q veces.Ej. replicar(“Hola”, 1, 2, 3) retorna “Hololola”.**  
 
 
   **3) Describa con exactitud las siguientes declaraciones/definiciones globales:**  
@@ -32,13 +29,16 @@ Un constructor por copia en c++ es un tipo de constructor de clase que devuelve 
 
   **4) Escribir un programa ISO C que reciba por argumento el nombre de un archivo de texto y lo procese sobre sí mismo (sin crear archivos intermedios ni subiendo todo su contenido a memoria). El procesamiento consiste en eliminar las líneas de 1 sola palabra.**
 
+  parte de la resolucion en ejercicio4.c
 
   **5) Declare una clase de elección libre. Incluya todos los campos de datos requeridos con su correcta exposición/publicación, y los operadores ++, -, ==, >> (carga), << (impresión), constructor move y operador float().**  
 
 
 **6) ¿Qué es una macro de C? Describa las buenas prácticas para su definición y ejemplifique.**  
 
+En C una macro es una porción de código que se traduce en tiempo de preproceso. Osea, al momento de traducir el codigo a codigo maquina, durante la etapa de preproceso.
 
+**faltan las buenas practicas.**
 
   **7) Escriba un programa que reciba por línea de comandos un Puerto y una IP. El programa debe aceptar una única conexión e imprimir en stdout la sumatoria de los enteros recibidos en cada paquete. Un paquete está definido como una sucesión de números recibidos como texto, en decimal, separados por comas y terminado con un signo igual (ej: “27,12,32=”). Al recibir el texto ‘FIN’ debe finalizar el programa ordenadamente liberando los recursos.**
 

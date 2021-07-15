@@ -10,6 +10,8 @@
 char* Replicar (char* cadena,int i1,int i2,int q){
 
   char aux[TAM_MAX];
+  char final[TAM_MAX];
+
   size_t tam_cadena = strlen(cadena);
 
   if (i1 < 0 || i2 < 0 || tam_cadena < (i1 + 1) || tam_cadena < (i2 + 1)){
@@ -19,9 +21,13 @@ char* Replicar (char* cadena,int i1,int i2,int q){
   size_t longACopiar = i2 - i1 + 1;
 
   strncpy((void*)(&aux),(void*)(&cadena[i1]),longACopiar);
-  char final[TAM_MAX];
 
-  strncpy((void*)(&final[0]),(void*)(&cadena[0]),i1);
+  printf("cadena1: %s\n",aux);
+
+  strncpy((void*)(&final),(void*)cadena,i1);
+
+  printf("cadena2: %s\n",final);
+
   for (int i = 0; i < q; i++){
     // falta ver que no me pase del largo
     int inicio = (i1 == 0? 0 : i1 + 1) + longACopiar * i;
@@ -38,6 +44,6 @@ int main(){
 
   char cadena[] = "hola";
   char* replica = Replicar(cadena,1,2,4);
-  printf("cadena: %s \n",replica);
+  printf("cadena3: %s \n",replica);
   return 0;
 }
