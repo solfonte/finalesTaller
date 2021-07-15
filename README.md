@@ -28,3 +28,84 @@ Temas:
   ```
   ntohs(short int) ntohl(int)
   ```
+
+* Segmentos de memoria:
+**Code segment**: de solo lectura y ejecutable, a donde va el código y las constantes.
+**Data segment**: variables creadas al inicio del programa y son válidas hasta que este termina; pueden ser de acceso global o local.
+**Stack**: variables creadas al inicio de una llamada a una función y destruidas automáticamente cuando esta
+llamada termina.
+**Heap**: variables cuya duración esta controlada por el programador (run-time).
+
+* Duración (lifetime): tiempo desde que a la variable se le reserva memoria hasta que esta es liberada. Determinado por el segmento de memoria que se usa.
+* Visibilidad (scope): Cuando una variable se la puede acceder y cuando esta oculta.  
+
+Algunos ejemplos son:
+```
+int g = 1; // Data segment; scope global
+static int l = 1; // Data segment; scope local (este file)
+extern char e; // No asigna memoria (es un nombre)
+```
+
+```
+void Fa() { } // Code segment; scope global
+static void Fb() { } // Code segment; scope local (este file)
+void Fc(); // No asigna memoria (es un nombre)
+```
+
+El siguiente codigo falla. Como el puntero "a" apunta al Code Segment y este es de solo lectura, tratar de modificarlo termina en un Segmentation Fault
+
+```
+void f() {
+  char *a = "ABC"; // c en el Stack; apunta al Code Segment
+  char b[] = "ABC"; // es un array con su todo en el Stack
+
+  b[0] = ’X’;
+  a[0] = ’X’; // segmentation fault
+  }
+```
+## Compilacion
+
+# Sockets (TCP)
+* Servicio: port
+* ip: host
+* La función *getaddrinfo* resuelve los nombres simbolicos de *host* y *servicio* nombres a sus correspondientes IPs y puertos.
+
+**Servidor**
+```
+memset(&hints, 0, sizeof(struct addrinfo));
+hints.ai_family = AF_INET; /* IPv4 */
+hints.ai_socktype = SOCK_STREAM; /* TCP */
+hints.ai_flags = AI_PASSIVE;
+
+status = getaddrinfo(0 /* ANY */, "http", &hints, &results);
+freeaddrinfo(results);
+```
+Las funciones que realiza son:
+* inicializar un socket: crear un file descriptor al igual que cuando abrimos un archivo
+* bind: establece a que interface, IP y puerto se quiere asociar ese socket. La dirección usada en la función bind son el resultado de la función getaddrinfo.
+* listen: listen define cuantas conexiones en espera pueden esperar hasta ser aceptadas. No limita cuantas conexiones totales puede haber.
+* accept: el servidor acepta las conexiones de alguien que quiere conectarse. Esta funcion es bloqueante. Cuando acepta una conexión, la función accept se desbloquea y retorna un nuevo socket que representa a la
+nueva conexión.
+* cerrar un socket
+
+* Ademas tiene dos sockets: aceptador y peer. El primero acepta las conexiones y el segundo es unico para comunicarse con cada cliente conectado.
+**Cliente**
+
+```
+memset(&hints, 0, sizeof(struct addrinfo));
+hints.ai_family = AF_INET; /* IPv4 */
+hints.ai_socktype = SOCK_STREAM; /* TCP */
+hints.ai_flags = 0;
+
+status = getaddrinfo("fi.uba.ar", "http", &hints, &results);
+freeaddrinfo(results);
+```
+Las funciones que realiza son:
+* inicializar un socket
+* connect: para conectar el socket con el servidor. Es bloqueante.
+* cerrar un socket
+
+* para cerrar una conexion, se hace *shutdown* y *close*. Tipos de shut down:
+  - envio: SHUT_WR
+  - recepción: SHUT_RD
+  - ambos: SHUT_RDWR
