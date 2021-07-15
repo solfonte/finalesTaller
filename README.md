@@ -66,6 +66,19 @@ https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 
 ## Clases en c++
 
+* Con los constructores (si estan bien escritos) no se puede usar un objeto sin inicializar.
+* Con los destructores (si estan bien escritos, se usa RAII y usamos el stack) no vamos a tener leaks.
+* Los destructores se llaman automáticamente cuando el objeto se va de scope.
+* Todos los objetos tienen un destructor.
+
+### RAII
+
+La idea es simple, si hay un recurso (memoria en el heap, un archivo, un socket) hay que encapsular el recurso en un objeto de C++ cuyo constructor lo adquiera e inicialize y cuyo destructor lo libere.    
+
+Al instanciarse los objetos RAII en el stack, sus constructores adquieren los recursos automáticamente. Al irse de scope cada objeto se les invoca su destructor automáticamente y por ende  liberan sus recursos sin necesidad de hacerlo explícitamente.    
+
+El código C++ se simplifica y se hace más robusto a errores de programación: RAII + Stack es uno de los conceptos claves en C++.
+
 # Sockets (TCP)
 * Servicio: port
 * ip: host
@@ -153,3 +166,5 @@ int feof(FILE *stream);
 ftruncate(FILE *stream, long int offset);
 ```
 https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
+
+# Threads
