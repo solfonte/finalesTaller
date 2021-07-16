@@ -1,13 +1,6 @@
 # Finales de taller de programacion 75.42
 Resueltos de finales del curso Veiga.
 
-Referencias:
-Diapositivas del curso Veiga.
-https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap25.htm
-https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
-
-
-
 # Lenguaje C y C++
 
 ## Memoria
@@ -174,3 +167,46 @@ https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 # Threads
 
 # Sobrecarga de operadores
+
+Asignacion por copia
+```
+T& operator=(const T& other);
+```
+
+Asignacion por movimiento
+
+```
+T& operator=(T&& other);
+```
+
+Operador Call
+
+```
+double operator()(double x) const;
+```
+
+Pre y post incremento
+```
+class Complex {
+  Complex& operator++() { //Pre-Incremento
+    ++re;
+    return *this;
+  }
+  Complex operator++(int) { //Post-Incremento
+    Complex copy(*this);
+    ++re;
+    return copy;
+  }
+};
+```
+Operadores de comparacion
+```
+bool operator==(const Complex& other) const{
+  return this->re == other.re && this->im == other.im;
+}
+
+```
+Referencias:
+Diapositivas del curso Veiga.
+https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap25.htm
+https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
