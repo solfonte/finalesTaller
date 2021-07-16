@@ -13,7 +13,7 @@ Es la sobrecarga del operador (). **faltan las ventajas y los ejemplos**
 **3) Escriba un programa que imprima por salida estándar los números entre 1 y 100, en orden ascendente. Se pide que los números sean contabilizados por una variable global única y que los pares sean escritos por un hilo mientras que los impares sean escritos por otro.**  
 **Contemple la correcta sincronización entre hilos y la liberación de los recursos utilizados.**  
 
-
+resuelto.  
 
 **4) Explique qué es (a), (b), (c) y (d), haciendo referencia a su valor y momento de inicialización, su comportamiento y el area de memoria donde residen:**  
 ```
@@ -33,10 +33,9 @@ return c+(int) d;
 **6) ¿Por qué las librerías que usan Templates se publican con todo el código fuente y no como un .h y .o/.obj?.**  
 
 
-
 **7) ¿Qué características debe tener un compilador C para se considerado “portable”?**  
 
-
+Para que un compilador sea portable debe poder implementarse en todas las arquitecturas.
 
 **8) Escriba un programa (desde la inicialización hasta la liberación de los recursos) que reciba paquetes de la forma [nnn+nn+....+nnnn] (numeros separados por +, encerrados entre corchetes) e imprima el resultado de la suma de cada paquete por pantalla. Al recibir un paquete vacío (“[]”) debe cerrarse ordenadamente. No considere errores.**  
 

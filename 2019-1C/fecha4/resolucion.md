@@ -29,13 +29,18 @@ std::list<T> DobleSegunda(std::list<T> a,std::list<T> b);
 
 **7) Escriba el .H de una biblioteca de funciones ISO C para números complejos. Incluya, al menos, 4 funciones.**  
 
-
+En archivo complejo.h
 
 **8) Explique qué es cada uno de los siguientes, haciendo referencia a su inicialización, su comportamiento y el area de memoria donde residen:**
-**a) Una variable global static**
+**a) Una variable global static**:
 **b) Una variable local static**
 **c) Un atributo de clase static.**
 
+chequear este
+
+  a- Esta variable sera global en el modulo declarado pero no podra ser accedida por otros modulos. Las inicializa el compilador y se almacenan en el data segment. El scope es local al archivo donde fue declarado.
+  b- Es una variable local que tiene un scope local. Estas variables son inicializadas por el compilador. Residen en el data segment.
+  c- Es un atributo que pertenece a la clase y no a un objeto en particular. **falta scope y lifetime**
 
 
 **9) ¿Cómo se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.**  
@@ -64,8 +69,10 @@ Cuando un hiolo invoca a un metodo se realiza el correspondiente lock para asegu
 
 
 **10) Indique la salida del siguiente programa:**
-**class A { A(){cout << “A()” << endl;}        ~A(){ cout << “~A()” << endl;} }**  
-**class B : public A { B(){cout << “B()” << endl;}       ~B(){ cout << “~B()” << endl;} }**  
+**class A { A(){cout << “A()” << endl;}**       
+**~A(){ cout << “~A()” << endl;} }**  
+**class B : public A { B(){cout << “B()” << endl;}**       
+**~B(){ cout << “~B()” << endl;} }**  
 **int main () { B b; return 0;}**  
 
-La salida del programa sera: ``` ~B() ``` ya que se instancio la clase B, y luego al finalizar el programa, se invoca su destructor automaticamente, el cual imprime por consola la salida indicada.  
+La salida del programa sera: ```A() B() ~B() ~A()```

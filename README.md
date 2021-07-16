@@ -3,6 +3,10 @@ Resueltos de finales del curso Veiga.
 
 Referencias:
 Diapositivas del curso Veiga.
+https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap25.htm
+https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
+
+
 
 # Lenguaje C y C++
 
