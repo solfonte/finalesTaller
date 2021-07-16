@@ -166,6 +166,18 @@ https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 
 # Threads
 
+* En C++11 podemos ejecutar una función en su propio hilo con td::thread. Luego, debemos esperar a que los hilos terminen sincronizando las ejecuciones con join.
+**Race condition**: se debe al acceso no-atómico de lecto/escritura de un recurso compartido.
+Si el recurso compartido es inmutable o solamente se accede a él para operaciones de lectura, no existe la posibilidad de tal error. Para evitar la race condition debemos hacer que los hilos se coordinen entre sí para evitar que accedan al objeto compartido a la vez.  
+Un mutex es un objeto que nos permitirá forzar la ejecución de un código de forma exclusiva por un hilo a la vez. En C++ std::mutex.  
+Para hacer un lock de un mutex podemos usar un lock raii:
+```
+#include <utility>
+#include <mutex>
+std::mutex mutex;
+std::lock_guard<std::mutex> lck(this->mutex);
+```
+
 # Sobrecarga de operadores
 
 Asignacion por copia
@@ -206,6 +218,8 @@ bool operator==(const Complex& other) const{
 }
 
 ```
+
+
 Referencias:
 Diapositivas del curso Veiga.
 https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap25.htm
