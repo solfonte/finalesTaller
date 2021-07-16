@@ -141,7 +141,7 @@ Modos de aperura de archivos:
 * "a": Append (crea el archivo si no existe. Si existe continúa al final).
 * "r+": Lectura y escritura, empieza al principio. El archivo debe existir.
 * "w+": Lectura y escritura (sobreescribe el archivo si existe).
-* "a+": Lectura y escritura (hace append si existe el archivo).
+* "a+": Lectura y escritura (hace append si existe el archivo).  
 Para archivos binarios:
 * "b": Para lectura escritura de archivos binarios (usar con alguno de los anteriores).
 * "t": Para lectura escritura de archivos en modo texto.

@@ -12,19 +12,29 @@ a memoria). El procesamiento consiste en eliminar las líneas de 1 sola palabra.
 
 static void eliminar_linea(FILE*file,int tamanio_linea){
   char linea[TAM_MAX];
-  fscanf(file, "%[^\n] ", linea);
+  fgets(linea,TAM_MAX,file);
+  printf("proxima linea q leo: %s\n",linea);
   int aux_tamanio_linea = strlen(linea);
+  printf("tam proxima linea q leo: %i\n",aux_tamanio_linea);
   fseek(file, (-1)*(aux_tamanio_linea + tamanio_linea), SEEK_CUR);
-  fwrite((void*)linea,aux_tamanio_linea,1,file);
+  int escribi = fputs(linea,file);//hasta aca anda
+  //fputs deja al archivo posicionado en la cantidad de caracteres que habia donde escribi la nueva linea
+  fseek(file,(aux_tamanio_linea - tamanio_linea +1 ), SEEK_CUR);
+  //fputc('\0',file);
+  fgets(linea,TAM_MAX,file);
+  printf("lo que pude escribir: %i\n",escribi);
+  printf("cuando releo: %s\n",linea);
+
+
 }
 
 static void procesarArchivo(FILE* file){
   char linea[TAM_MAX];
   int tamanio_linea,espacios;
-  while (!feof(file)){
+  while (fgets(linea,TAM_MAX,file) != NULL){
     espacios = 0;
-    fscanf(file, "%[^\n] ", linea);
     tamanio_linea = strlen(linea);
+    printf("leo: %s\n", linea);
     printf("tam: %i\n", tamanio_linea);
     for (int i = 0; i < tamanio_linea; i++){
       if (linea[i] == ' '){
