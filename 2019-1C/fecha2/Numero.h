@@ -1,6 +1,9 @@
 #ifndef __NUMERO_H__
 #define __NUMERO_H__
 
+#include <ostream>
+#include <istream>
+
 class Numero(){
   private:
     unsigned long numero;
@@ -15,6 +18,7 @@ class Numero(){
     Numero operator(int);
     std::istream& operator>>(std::istream& in, const Numero& numero){
       in >> numero;
+      return in;
     }
 };
 #endif

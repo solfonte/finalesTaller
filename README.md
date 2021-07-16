@@ -172,3 +172,5 @@ ftruncate(FILE *stream, long int offset);
 https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 
 # Threads
+
+# Sobrecarga de operadores
