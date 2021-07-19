@@ -1,9 +1,6 @@
-//incompleto
-
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define TAMANIO_MAX 1000
 
 int main(int argc, char const *argv[]) {
 
