@@ -24,6 +24,7 @@ std::list<T> DobleSegunda(std::list<T> a,std::list<T> b);
 **6) Escriba un programa que reciba por línea de comandos un Puerto y una IP. El programa debe aceptar una unica conexión e imprimir en stdout todo lo recibido. Al recibir el texto ‘FIN’ debe finalizar el programa sin imprimir dicho texto.**  
 
 
+
 **7) Escriba el .H de una biblioteca de funciones ISO C para números complejos. Incluya, al menos, 4 funciones.**  
 
 En archivo complejo.h
