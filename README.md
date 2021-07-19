@@ -166,7 +166,7 @@ https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 
 # Threads
 
-En C++11 podemos ejecutar una función en su propio hilo con td::thread. Luego, debemos esperar a que los hilos terminen sincronizando las ejecuciones con join.
+En C++11 podemos ejecutar una función en su propio hilo con td::thread. Luego, debemos esperar a que los hilos terminen sincronizando las ejecuciones con join.  
 **Race condition**: se debe al acceso no-atómico de lecto/escritura de un recurso compartido.
 Si el recurso compartido es inmutable o solamente se accede a él para operaciones de lectura, no existe la posibilidad de tal error. Para evitar la race condition debemos hacer que los hilos se coordinen entre sí para evitar que accedan al objeto compartido a la vez.  
 Un mutex es un objeto que nos permitirá forzar la ejecución de un código de forma exclusiva por un hilo a la vez. En C++ std::mutex.  
@@ -195,6 +195,8 @@ T& operator=(T&& other);
 Operador Call
 
 ```
+void operator()() const;
+//o con parametros
 double operator()(double x) const;
 ```
 
@@ -217,11 +219,10 @@ Operadores de comparacion
 bool operator==(const Complex& other) const{
   return this->re == other.re && this->im == other.im;
 }
-
 ```
 
 
 Referencias:
-Diapositivas del curso Veiga.
-https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap25.htm
+Diapositivas del curso Veiga.  
+https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap25.htm  
 https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf

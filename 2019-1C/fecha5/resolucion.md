@@ -6,7 +6,7 @@
 **B) Definición de una la función RESTA, que tome dos enteros largos con signo y devuelva su resta. Esta función debe ser visible en todos los módulos del programa.**
 **C) Definición de un caracter solamente visible en el módulo donde se define.**
 
-  A. ``` long int** entero largo;```  
+  A. ``` long int** entero;```  
   B.
     ```
     long int resta(long int number, long int otherNumber){
@@ -16,16 +16,14 @@
   C. ```static char c = 'A';```  
 
 **3) Declare la clase TELEFONO para encapsular una cadena numérica correspondiente a un teléfono. Incluya al menos: Constructor(area, numero), Constructor move y Constructor de Copia; Operador <<, ==, =, long y >>. Implemente el operador >>.**   
-
-
+Resuelto en el archivo telefono.h
 
 **4) Explique qué se entiende por “compilación condicional”. Ejemplifique mediante código.**  
-respuetsa en segunda fecha  
+respuesta en la segunda fecha  
 
 
 **5) ¿Qué significa que una función es blocante?¿Cómo subsanaría esa limitación en término de mantener el programa ‘vivo’ ?**  
-respuesta en primera fecha  
-
+respuesta en la primera fecha  
 
 
 **6) Explique qué son los métodos virtuales puros y para qué sirven. De un breve ejemplo donde su uso sea imprescindible.**  
@@ -37,12 +35,43 @@ Los metodos virtuales puros son los que se declaran como ```virtual .... = 0 ```
 
 **8) ¿Qué es el polimorfismo? Ejemplifique mediante código.**  
 En C++, significa que la misma llamada a función tiene distintos comportamientos dependiendo del tipo del objeto. La unica condicion es que los distintos objetos entiendan el mensaje que se les envia.  
-falta ejemplo   
+Por ejemplo, si tenemos la clase Figura:
+```
+class Figura{
+  public:
+    virtual float area() = 0;
+}
+```
+podemos definir las siguientes clases:
 
+```
+class Triangulo: public Figura{
+  private:
+    float base;
+    float altura;
+  public:
+    float area(){
+      return base * altura;
+    }
+}
+
+class Cuadrado: public Figura{
+  private:
+    float lado;
+  public:
+    float area(){
+      return lado * lado;
+    }
+}
+```
+
+y luego podemos obtener el area de cualquier objeto que pertenezca a una clase que herede de Figura, y cada uno se comportara distinto.
 
 **9) ¿Qué función utiliza para esperar la terminación de un thread? Ejemplifique mediante código.**  
 
+join?
 
+**10) Escriba un programa C que tome 2 cadenas por línea de comandos: A y B; e imprima la cadena A después de haber duplicado todas las ocurrencias de B..**
+**ej.: reemp.exe “El final está aprobado” aprobado -----> El final está aprobado aprobado**
 
-10) Escriba un programa C que tome 2 cadenas por línea de comandos: A y B; e imprima la cadena A después de haber duplicado todas las ocurrencias de B..
-ej.: reemp.exe “El final está aprobado” aprobado -----> El final está aprobado aprobado
+resuelto

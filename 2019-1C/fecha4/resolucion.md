@@ -16,15 +16,12 @@ f es la declaracion de un puntero a una funcion que devuelve un tipo de dato cha
 **4) Escribir un programa ISO C que procese el archivo “nros_2bytes_bigendian.dat” sobre sí mismo, eliminando los número múltiplos de 7.**  
 
 
-
 **5) Implemente una función C++ denominada DobleSegunda que reciba dos listas de elementos y devuelva una nueva lista duplicando los elementos de la primera si están en la segunda:**  
 ```
 std::list<T> DobleSegunda(std::list<T> a,std::list<T> b);
 ```
 
-
 **6) Escriba un programa que reciba por línea de comandos un Puerto y una IP. El programa debe aceptar una unica conexión e imprimir en stdout todo lo recibido. Al recibir el texto ‘FIN’ debe finalizar el programa sin imprimir dicho texto.**  
-
 
 
 **7) Escriba el .H de una biblioteca de funciones ISO C para números complejos. Incluya, al menos, 4 funciones.**  
