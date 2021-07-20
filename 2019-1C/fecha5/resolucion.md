@@ -27,7 +27,7 @@ respuesta en la primera fecha
 
 
 **6) Explique qué son los métodos virtuales puros y para qué sirven. De un breve ejemplo donde su uso sea imprescindible.**  
-Los metodos virtuales puros son los que se declaran como ```virtual .... = 0 ```. Estos son metodos abstractos que deben ser implementados por las clases derivadas de la clase que declara dicho metodo virtual puro. Sirven para poder aplicar polimorfismo, para que las distintas clases derivadas tengan un comportamiento distinto al invocarse este metodo. **falta ejemplo imprescindible**
+Los metodos virtuales puros son un tipo de metodo virtual y son los que se declaran como ```virtual .... = 0 ```. Estos son metodos abstractos que deben ser implementados por las clases derivadas de la clase que declara dicho metodo virtual puro. Sirven para poder aplicar polimorfismo, para que las distintas clases derivadas tengan un comportamiento distinto al invocarse este metodo. Un ejemplo imprescindile es el caso en el que queremos declarar un metodo sin que exista la definición correspondiente.
 
 
 **7) Escribir un programa C que procese el archivo “numeros.txt” sobre sí mismo (sin crear archivos intermedios y sin subir el archivo a memoria). El procesamiento consiste en leer nros hexadecimales de 4 símbolos y reemplazarlos por su valor decimal (en texto).**  
@@ -69,7 +69,7 @@ y luego podemos obtener el area de cualquier objeto que pertenezca a una clase q
 
 **9) ¿Qué función utiliza para esperar la terminación de un thread? Ejemplifique mediante código.**  
 
-join?
+La funcion que se utiliza es join(). Esta funcion bloquea la ejecucion del hilo que llama a esta funcion hasta que la funcion que se ejecuta en el hilo retorna. Luego de llamar a esta funcion, el hilo se vuelve non-joinable y puede ser destruido de manera segura.
 
 **10) Escriba un programa C que tome 2 cadenas por línea de comandos: A y B; e imprima la cadena A después de haber duplicado todas las ocurrencias de B..**
 **ej.: reemp.exe “El final está aprobado” aprobado -----> El final está aprobado aprobado**

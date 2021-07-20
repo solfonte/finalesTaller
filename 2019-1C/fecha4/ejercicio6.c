@@ -10,6 +10,11 @@
 
 int main(int argc,const char* argv[]){
 
+  if (argc < 3){
+    printf("FALTAN ARGUMENTOS\n");
+    return -1;
+  }
+
   const char* port = argv[1];
   const char* host = argv[2];
 

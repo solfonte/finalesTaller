@@ -16,6 +16,7 @@ Un constructor por copia en c++ es un tipo de constructor de clase que devuelve 
 
   **2) Escriba una función ISO C llamada Replicar que reciba 1 cadena (S), dos índices (I1 e I2) y una cantidad (Q). La función debe retornar una copia de S salvo los caracteres que se encuentran entre los índices I1 e I2 que serán duplicados Q veces.Ej. replicar(“Hola”, 1, 2, 3) retorna “Hololola”.**  
 
+resuelto
 
   **3) Describa con exactitud las siguientes declaraciones/definiciones globales:**  
   **1. void (*F)(int i);**

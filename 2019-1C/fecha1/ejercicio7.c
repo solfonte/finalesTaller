@@ -1,4 +1,3 @@
-
 //puerto e ip -> cliente
 
 #include <stdio.h>
@@ -38,7 +37,6 @@ int main(int argc, char const *argv[]) {
   char buf;
   bool error = false, termine = false;
   char fin = 'F';
-  int contador = 0;
   int acumulador = 0;
   while(!termine && !error){
     ssize_t resultado_recv = recv(socket_fd,&buf,sizeof(buf),0);
@@ -47,7 +45,7 @@ int main(int argc, char const *argv[]) {
     }else if (buf == fin){//no recibe otra letra
       termine = true;
     }else {
-      if (contador % 2 == 0){
+      if (buf != '+' && buf != '='){
         acumulador += buf;
       }
     }
