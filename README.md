@@ -145,7 +145,6 @@ Para archivos binarios:
 
 Mas funciones:
 ```
-int scanf(const char *format, ...);// esta capaz no
 int fgetc(FILE *stream);
 int fputc(int char, FILE *stream):
 char *fgets(char *str, int n, FILE *stream):
