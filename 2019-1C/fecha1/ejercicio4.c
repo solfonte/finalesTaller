@@ -5,56 +5,51 @@ a memoria). El procesamiento consiste en eliminar las líneas de 1 sola palabra.
 *******/
 
 #include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
 #include <string.h>
 #define TAM_MAX 800
 
-//no anda bien
-
-static void eliminar_linea(FILE*file,int tamanio_linea){
-  char linea[TAM_MAX];
-  fgets(linea,TAM_MAX,file);
-  //printf("proxima linea q leo: %s\n",linea);
-  int aux_tamanio_linea = strlen(linea);
-  //printf("tam proxima linea q leo: %i\n",aux_tamanio_linea);
-  fseek(file,(-1)*(aux_tamanio_linea + tamanio_linea), SEEK_CUR);
-  fputs(linea,file);//hasta aca anda
-  fseek(file,(-1)*aux_tamanio_linea, SEEK_CUR);
-
-  //fputc('\0',file);
-  //fputs deja al archivo posicionado en la cantidad de caracteres que habia donde escribi la nueva linea
-
+static int obtenerLineaCorregida(char leido[TAM_MAX],FILE* read){
+  char aux = '\0';
+  int i = 0, espacios = 0, bytes = 0;
+  while(aux != '\n' && !feof(read)){
+    fread(&aux,sizeof(char),1,read);
+    if (aux == ' '){
+      espacios++;
+    }
+    printf("%c",aux);
+    leido[i] = aux;
+    i++;
+    bytes++;
+  }
+  if (espacios == 0){
+    bytes = 0;
+  }
+  return bytes;
 }
 
-static void procesarArchivo(FILE* file){
-  char linea[TAM_MAX];
-  int tamanio_linea,espacios;
-  while (fgets(linea,TAM_MAX,file) != NULL){
-    espacios = 0;
-    tamanio_linea = strlen(linea);
-  //  printf("leo: %s\n", linea);
-  //  printf("tam: %i\n", tamanio_linea);
-    for (int i = 0; i < tamanio_linea; i++){
-      if (linea[i] == ' '){
-        espacios++;
-      }
-    }
-    if (espacios == 0){
-      eliminar_linea(file, tamanio_linea);
-    }
+static void procesarArchivo(FILE* read,FILE* write){
+
+  int bytesTotales = 0, tamLinea;
+  char leido[TAM_MAX];
+
+  while(!feof(read)){
+    tamLinea = obtenerLineaCorregida(leido,read);
+    fwrite(leido,sizeof(char),tamLinea,write);
+    bytesTotales += tamLinea;
   }
+  fseek(write,bytesTotales,SEEK_CUR);
+  ftruncate(fileno(write),bytesTotales);
 }
 
 int main(int argc, char const *argv[]) {
+  FILE* read = fopen(argv[1],"r");
+  FILE* write = fopen(argv[1],"r+");
 
-  FILE* fp = fopen(argv[1],"r+");
+  procesarArchivo(read,write);
 
-  if (fp == NULL){
-    printf("ERROR\n");
-    return 0;
-  }
-
-  procesarArchivo(fp);
-
-  fclose(fp);
+  fclose(read);
+  fclose(write);
   return 0;
 }
