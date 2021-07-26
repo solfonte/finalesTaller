@@ -1,6 +1,9 @@
 #ifndef _NUMERO_H_
 #define _NUMERO_H_
 
+#include <ostream>
+#include <istream>
+
 class Numero{
 
   private:
