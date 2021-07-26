@@ -68,6 +68,9 @@ https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 * Los destructores se llaman automáticamente cuando el objeto se va de scope.
 * Todos los objetos tienen un destructor.
 
+Links:
+  * https://taller-de-programacion.github.io/blog/2010/08/21/Constructor-de-copia-Orden.html
+
 ### RAII
 
 La idea es simple, si hay un recurso (memoria en el heap, un archivo, un socket) hay que encapsular el recurso en un objeto de C++ cuyo constructor lo adquiera e inicialize y cuyo destructor lo libere.    
@@ -219,7 +222,9 @@ bool operator==(const Complex& other) const{
   return this->re == other.re && this->im == other.im;
 }
 ```
+# UI
 
+https://github.com/Taller-de-Programacion/clases/tree/master/bibliotecas-gui
 
 Referencias:
 Diapositivas del curso Veiga.  

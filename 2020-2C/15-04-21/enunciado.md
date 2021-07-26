@@ -13,6 +13,8 @@ int *(**f) (short int *, char *[2]);
 
 **5) Escriba el .H de una biblioteca de funciones ISO C para cadenas de caracteres. Incluya, al menos, 4 funciones.**
 
+https://taller-de-programacion.github.io/blog/2010/08/21/Constructor-de-copia-y-sobrecarga-II.html
+
 **6) ¿Qué es una macro de C? Detalle las buenas prácticas para su definición. Ejemplifique**
 
 **7) Describa el proceso de transformación de código fuente a un ejecutable. Precise las etapas y las tareas desarrolladas en cada una de ellas.**

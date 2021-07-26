@@ -9,7 +9,7 @@ resuelto en numero.h
 
 Es la sobrecarga del operador(). Se usa para definir objetos que pueden ser llamados como funciones. Se usa principalmente para los objetos que de alguna manera se comportan como funciones.
 
- **faltan las ventajas y los ejemplos**
+ *faltan las ventajas y los ejemplos*
 
 
 **3) Escriba un programa que imprima por salida estándar los números entre 1 y 100, en orden ascendente. Se pide que los números sean contabilizados por una variable global única y que los pares sean escritos por un hilo mientras que los impares sean escritos por otro.**  
@@ -28,9 +28,11 @@ return c+(int) d;
 ```
 **5) Escriba una rutina que dibuje las dos diagonales de la pantalla en color rojo..**  
 
+*falta (QT)*
 
 **6) ¿Por qué las librerías que usan Templates se publican con todo el código fuente y no como un .h y .o/.obj?.**  
 
+Porque el código template es procesado por el compilador y depende de tipo de dato que se use en el momento de compilar. Por eso, podemos especificar el tipo de dato o dejar que el compilador lo deduzca, pero dicho codigo debe compilarse al momento de definir el tipo.  
 
 **7) ¿Qué características debe tener un compilador C para se considerado “portable”?**  
 
@@ -42,6 +44,7 @@ resuelto.
 
 **9) Escriba una función ISO C que permita procesar un archivo texto que contenga frases (1 por línea) sobre sí mismo, sin generar archivos intermedios ni cargar el archivo completo a memoria. El procesamiento consiste en eliminar las palabras de más de 3 letras de cada línea.**  
 
+resuelto
 
 **10) ¿Qué diferencia existe entre un constructor por copia y uno por movimiento? Ejemplifique.**  
 diferencia en la primera fecha

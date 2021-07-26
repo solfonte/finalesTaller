@@ -1,5 +1,6 @@
 **1) Escriba una rutina (para ambiente gráfico Windows o Linux) que dibuje un triángulo amarillo del tamaño de la ventana.**
 
+*falta (QT)*
 
 **2) Escriba las siguientes definiciones/declaraciones:**
 **A) Declaración de un puntero a puntero a entero largo con signo.**
@@ -16,14 +17,14 @@
   C. ```static char c = 'A';```  
 
 **3) Declare la clase TELEFONO para encapsular una cadena numérica correspondiente a un teléfono. Incluya al menos: Constructor(area, numero), Constructor move y Constructor de Copia; Operador <<, ==, =, long y >>. Implemente el operador >>.**   
-Resuelto en el archivo telefono.h
+Resuelto en telefono.h
 
 **4) Explique qué se entiende por “compilación condicional”. Ejemplifique mediante código.**  
-respuesta en la segunda fecha  
+ej 5 segunda fecha  
 
 
 **5) ¿Qué significa que una función es blocante?¿Cómo subsanaría esa limitación en término de mantener el programa ‘vivo’ ?**  
-respuesta en la primera fecha  
+ej 10 primera fecha  
 
 
 **6) Explique qué son los métodos virtuales puros y para qué sirven. De un breve ejemplo donde su uso sea imprescindible.**  
@@ -32,6 +33,7 @@ Los metodos virtuales puros son un tipo de metodo virtual y son los que se decla
 
 **7) Escribir un programa C que procese el archivo “numeros.txt” sobre sí mismo (sin crear archivos intermedios y sin subir el archivo a memoria). El procesamiento consiste en leer nros hexadecimales de 4 símbolos y reemplazarlos por su valor decimal (en texto).**  
 
+resuelto en la fecha 2
 
 **8) ¿Qué es el polimorfismo? Ejemplifique mediante código.**  
 En C++, significa que la misma llamada a función tiene distintos comportamientos dependiendo del tipo del objeto. La unica condicion es que los distintos objetos entiendan el mensaje que se les envia.  
