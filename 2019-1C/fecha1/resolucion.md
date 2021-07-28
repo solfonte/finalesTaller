@@ -38,9 +38,11 @@ resuelto en Numero.h
 
 **6) ¿Qué es una macro de C? Describa las buenas prácticas para su definición y ejemplifique.**  
 
-En C una macro es una porción de código que se traduce en tiempo de preproceso. Osea, al momento de traducir el codigo a codigo maquina, durante la etapa de preproceso.
-
-*faltan las buenas practicas.*
+En C una macro es la definicion de un rotulo que admite parametros y se traduce en tiempo de preproceso, reemplazando el codigo de su definicion en donde se la haya llamado. Osea, al momento de traducir el codigo a codigo maquina, durante la etapa de preproceso. Se define con la directiva #define.Una buena practica es que, cuando definimos macros, todas las expresiones de la macro deben estar encerrados entre parentesis para evitar errores en la expansion. Ademas, tener nombres descriptivos es otra buena practica. Por ejemplo:
+```
+#define min(x,y) ( (x) < (y) ? (x) : (y) )
+#define MULTIPLICAR ( (x) * (y) )
+```
 
   **7) Escriba un programa que reciba por línea de comandos un Puerto y una IP. El programa debe aceptar una única conexión e imprimir en stdout la sumatoria de los enteros recibidos en cada paquete. Un paquete está definido como una sucesión de números recibidos como texto, en decimal, separados por comas y terminado con un signo igual (ej: “27,12,32=”). Al recibir el texto ‘FIN’ debe finalizar el programa ordenadamente liberando los recursos.**
 
@@ -50,7 +52,7 @@ resuelto
 
   La compilacion consta de 3 etapas: preprocesamiento, compilacion y link edicion (en ese orden). Se parte del codigo fuente y al finalizar se obtiene el ejecutable.
     * Preprocesamiento: se procesan las macros y las directivas al compilador. Se expanden las macros que se hayan definido y se incluyen los archivos .h que se hayan incluido utilizando la directiva #include. Puede ocurrir que el modulo incluido no se encuentre y ahi tendriamos un error.
-    * Compilacion: se pasa de un archivo de texto a un codigo objeto. Contiene la info sobre las funciones, segmento de texto datos etc. Pueden ocurrir errores de sintaxis y advertencias.
+    * Compilacion: se parsea el codigo c y se pasa de un archivo de texto a un codigo objeto. Contiene la info sobre las funciones, segmento de texto datos etc. Pueden ocurrir errores de sintaxis y advertencias.
     * Link edicion: etapa en la que se linkean los distintos modulos para generar el archivo ejecutable. Junta las dependencias. Pueden ocurrir errores de enlace  porque no incluimos alguna biblioteca o archivo objeto, o puede que hayamos olvidado definir alguna función o variable, o lo hayamos hecho mal.
 
   **9) ¿Qué ventaja ofrece un lock raii frente al tradicional lock/unlock ?**  
@@ -58,4 +60,4 @@ resuelto
   Un lock raii es una clase que realiza un lock de un mutex al crearse, y luego realiza el unlock de la clase al destruirse. El destructor se invoca automaticamente por ser raii, al finalizar el scope de la funcion, con lo cual no se corre el riesgo de dejar un hilo bloqueado, ya sea porque el desarrollador se olvido o porque se lanzo una excepcion, por ejemplo.
 
   **10) ¿Qué significa que una función es blocante?¿Cómo subsanaría esa limitación en términos de mantener el programa ‘vivo’ ?**  
-*falta*
+  Que una funcion sea bloqueante significa que se queda esperando hasta que se cumpla una tarea o hasta obtener un resultado. Para mantener el programa vivo, pueden agregar hilos para ejecutar concurrentemente aquello que deba seguir ejecutandose, mientras que otro hilo es el que se queda esperando.

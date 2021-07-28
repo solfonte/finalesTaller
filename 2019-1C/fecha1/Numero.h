@@ -10,7 +10,7 @@ class Numero{
     long int numero;
   public:
     Numero& operator++();//pre-incremento
-    Numero operator-(const Numero& otroNumero) const;
+    Numero operator-(const Numero& numero,const Numero& otroNumero) const;
     bool operator==(const Numero& otroNumero) const;
     std::istream& operator>>(std::istream& in,Numero& otroNumero);
     std::ostream& operator<<(std::ostream& out,Numero& otroNumero);
