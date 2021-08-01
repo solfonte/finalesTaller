@@ -11,23 +11,26 @@ void procesarArchivo(const char* path){
   int cantLeido;
   int numero = 0;
   int potencia = 1;
-  int bytes = 1;
+  int bytes = 0;
   char numeroTexto[1000];
+  cantLeido = fread(hexa,sizeof(char),4,read);
   while(!feof(read)){
-    cantLeido = fread(hexa,sizeof(char),4,read);
+    printf("leo: %i\n", cantLeido);
     for (int i = cantLeido - 1; i >= 0; i--){
       int caracter = ((int)(hexa[i]) - '0');
       if (caracter > 10) caracter -= 7;
       numero += caracter * potencia;
       potencia = potencia << 4;
     }
-    sprintf(numeroTexto,"%d",numero);
+    printf("final: %i\n", numero);
+    bytes += sprintf(numeroTexto,"%d",numero);
     fwrite(numeroTexto,sizeof(int),1,write);
-    bytes++;
     cantLeido = 0;
     numero = 0;
+    potencia = 1;
+    cantLeido = fread(hexa,sizeof(char),4,read);
   }
-  fseek(write,bytes,SEEK_CUR);
+  rewind(write);
   ftruncate(fileno(write),bytes);
   fclose(write);
   fclose(read);
