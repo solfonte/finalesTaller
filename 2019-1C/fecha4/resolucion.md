@@ -13,7 +13,7 @@ f es la declaracion de un puntero a una funcion que devuelve un tipo de dato cha
 
 **4) Escribir un programa ISO C que procese el archivo “nros_2bytes_bigendian.dat” sobre sí mismo, eliminando los número múltiplos de 7.**  
 
-*falta (archivo binario o de texto?)*
+*falta (archivos binarios)*
 
 **5) Implemente una función C++ denominada DobleSegunda que reciba dos listas de elementos y devuelva una nueva lista duplicando los elementos de la primera si están en la segunda:**  
 ```

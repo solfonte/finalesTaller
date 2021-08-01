@@ -55,7 +55,7 @@ La salida de sizeof(int) depende de la arquitectura y el compilador que utilicem
 
 **9) Describa el concepto de loop de eventos (events loop) utilizado en programación orientada a eventos y, en particular, en entornos de interfaz gráfica (GUIs).**
 
-*falta (clase de event loop)*
+El loop de eventos es el bucle que maneja los eventos que se encuentran en la cola de eventos. El mismo es un patron muy usado en todas las aplicaciones que interactuan con el usuario de manera grafica, y consiste en un while que se ejecuta mientras se deba continuar atendiendo eventos. Por cada evento que procesa, se ejecuta un handler para dicho evento.
 
 **10) ¿Qué ventaja ofrece un lock raii frente al tradicional lock/unlock ?**  
 ej 9 primera fecha  

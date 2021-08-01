@@ -37,12 +37,11 @@ Esto no es verdad ya que las variables dentro del struct se guardan en memoria e
 
 **8) ¿En qué consiste el patrón de diseño RAII? Ejemplifique.**   
 
-*falta*
+Este patron de disenio es un patron utilizado para el manejo de recursos y consiste en reservar recursos para el objeto en el constructor y liberarlos en el destructor. Luego, para liberar los objetos, se hace en el orden inverso al cual fueron instanciados. Esto nos ayuda a dejar de tener leaks.
 
 **9) Escribir un programa ISO C que procese el archivo de enteros de 2 bytes bigendian cuyo nombre es recibido como parámetro. El procesamiento consiste en eliminar los número múltiplos de 3, trabajando sobre el mismo archivo (sin archivos intermedios ni en memoria).**  
 
-(short numero)
-*falta*
+ejercicio9.c *no anda*
 
 **10) Implemente una función C++ denominada DobleSiNo que reciba dos listas de elementos y devuelva una nueva lista duplicando los elementos de la primera que no están en la segunda:**  
 ```
