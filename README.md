@@ -34,13 +34,13 @@ llamada termina.
 * Visibilidad (scope): Cuando una variable se la puede acceder y cuando esta oculta.  
 
 Algunos ejemplos son:
-```
+```c
 int g = 1; // Data segment; scope global
 static int l = 1; // Data segment; scope local (este file)
 extern char e; // No asigna memoria (es un nombre)
 ```
 
-```
+```c
 void Fa() { } // Code segment; scope global
 static void Fb() { } // Code segment; scope local (este file)
 void Fc(); // No asigna memoria (es un nombre)
@@ -48,7 +48,7 @@ void Fc(); // No asigna memoria (es un nombre)
 
 El siguiente codigo falla. Como el puntero "a" apunta al Code Segment y este es de solo lectura, tratar de modificarlo termina en un Segmentation Fault
 
-```
+```c
 void f() {
   char *a = "ABC"; // c en el Stack; apunta al Code Segment
   char b[] = "ABC"; // es un array con su todo en el Stack
@@ -85,7 +85,7 @@ El código C++ se simplifica y se hace más robusto a errores de programación: 
 * La función *getaddrinfo* resuelve los nombres simbolicos de *host* y *servicio* nombres a sus correspondientes IPs y puertos.
 
 **Servidor**
-```
+```c
 memset(&hints, 0, sizeof(struct addrinfo));
 hints.ai_family = AF_INET; /* IPv4 */
 hints.ai_socktype = SOCK_STREAM; /* TCP */
@@ -106,7 +106,7 @@ nueva conexión.
 
 **Cliente**
 
-```
+```c
 memset(&hints, 0, sizeof(struct addrinfo));
 hints.ai_family = AF_INET; /* IPv4 */
 hints.ai_socktype = SOCK_STREAM; /* TCP */
@@ -128,11 +128,11 @@ Para cerrar una conexion, se hace *shutdown* y *close*. Tipos de shut down:
 # Archivos
 
 Para abrir un archivo:
-```
+```c
 FILE *fopen(const char *path, const char *modo);
 ```
 Para cerrarlo:
-```
+```c
 int fclose(FILE *stream);
 ```
 Modos de aperura de archivos:
@@ -147,7 +147,7 @@ Para archivos binarios:
 * "t": Para lectura escritura de archivos en modo texto.
 
 Mas funciones:
-```
+```c
 int fgetc(FILE *stream);
 int fputc(int char, FILE *stream):
 char *fgets(char *str, int n, FILE *stream):
@@ -173,7 +173,7 @@ En C++11 podemos ejecutar una función en su propio hilo con td::thread. Luego, 
 Si el recurso compartido es inmutable o solamente se accede a él para operaciones de lectura, no existe la posibilidad de tal error. Para evitar la race condition debemos hacer que los hilos se coordinen entre sí para evitar que accedan al objeto compartido a la vez.  
 Un mutex es un objeto que nos permitirá forzar la ejecución de un código de forma exclusiva por un hilo a la vez. En C++ std::mutex.  
 Para hacer un lock de un mutex podemos usar un lock raii:
-```
+```c
 #include <utility>
 #include <mutex>
 std::mutex mutex;

@@ -13,7 +13,7 @@ f es la declaracion de un puntero a una funcion que devuelve un tipo de dato cha
 
 **4) Escribir un programa ISO C que procese el archivo “nros_2bytes_bigendian.dat” sobre sí mismo, eliminando los número múltiplos de 7.**  
 
-*falta (archivos binarios)*
+*falta (archivos binarios, creo que se usa hton)*
 
 **5) Implemente una función C++ denominada DobleSegunda que reciba dos listas de elementos y devuelva una nueva lista duplicando los elementos de la primera si están en la segunda:**  
 ```
@@ -37,7 +37,7 @@ En archivo complejo.h
 
   a- Esta variable sera global en el modulo declarado pero no podra ser accedida por otros modulos. Las inicializa el compilador y se almacenan en el data segment. El scope es local al archivo donde fue declarado.
   b- Es una variable local que tiene un scope local. Estas variables son inicializadas por el compilador. Residen en el data segment. Es una variable local a una función, pero por ser static su valor se mantiene entre llamadas a esta función.
-  c- Es un atributo que pertenece a la clase y no a un objeto en particular. *falta scope y lifetime*
+  c- Es un atributo que pertenece a la clase y no a un objeto en particular. El scope es global y el lifetime es mientras dure la ejecucion del programa.
 
 **9) ¿Cómo se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.**  
 Lo que se hace para lograr esto es hacer una clase protegida, donde se encapsula el recurso compartido junto con su mutex correspondiente. Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que cuando un hilo acceda a el, si otro hilo quiere acceder no podra ya que estara lockeado. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
