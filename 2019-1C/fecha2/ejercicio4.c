@@ -3,7 +3,7 @@
 #include <sys/types.h>
 
 //el programa lee caracteres hexadecimales, las letras deben estar en mayuscula
-//no funciona cuando hay varios numeros en el archivo (falla al escribir)
+
 void procesarArchivo(const char* path){
   FILE* write = fopen(path,"r+");
   FILE* read = fopen(path,"r");
