@@ -43,19 +43,27 @@ int main(int argc, const char* argv[]){
   char buf;
   bool termine = false;
   int acumulador = 0;
+  char aux = '0';
 
   while (!termine){
     ssize_t recv = recv(sock_fd,&buf,sizeof(buf),0);
-    if (buf == ']'){
-      termine = true;
+    if (buf == '['){
+      aux = buf;
+    }else if (buf == ']'){
+      if (aux == buf){
+        termine = true;
+      }else{
+        printf("El resultado de la suma es: %i\n",acumulador);
+        acumuldor = 0;
+      }
     }else{
       if (buf != '+' && buf != '['){
-        acumulador += buf;
+        acumulador += (buf - '0');
       }
+      aux = '0';
     }
   }
-  printf("El resultado de la suma es: %i\n",acumulador);
-  
+
   shutdown(sock_fd,SHUT_RDWR);
   close(sock_fd);
 }

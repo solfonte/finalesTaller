@@ -1,5 +1,6 @@
 **1) Escriba un programa (desde la inicialización hasta la liberación de los recursos) que reciba paquetes de la forma nnn+nn+....+nnnn= (numeros separados por +, seguidos de =) e imprima el resultado de la suma de cada paquete por pantalla. Al recibir un paquete vacío (“=”) debe cerrarse ordenadamente. No considere errores.**  
 
+resuelto en ejercicio1.c
 
 **2) Explique breve y concretamente qué es f:**  
 ```
@@ -33,7 +34,7 @@ respuesta en final del 1C
 
 **7) Considere la estructura struct ejemplo { int a; char b;}. ¿Es verdad que sizeof (ejemplo)=sizeof(a) +sizeof(b)? Justifique.**  
 
-Esto no es verdad ya que las variables dentro del struct se guardan en memoria en direcciones multiplos de 4, con lo cual size(int) devolvera un multiplo de 4, y size(a) + size(b) = 5. **ver esta respuesta del tp0**.
+Esto no es verdad ya que las variables dentro del struct se guardan en memoria en direcciones multiplos de 4, con lo cual size(int) devolvera un multiplo de 4, y size(a) + size(b) = 5.
 
 **8) ¿En qué consiste el patrón de diseño RAII? Ejemplifique.**   
 
@@ -41,7 +42,7 @@ Este patron de disenio es un patron utilizado para el manejo de recursos y consi
 
 **9) Escribir un programa ISO C que procese el archivo de enteros de 2 bytes bigendian cuyo nombre es recibido como parámetro. El procesamiento consiste en eliminar los número múltiplos de 3, trabajando sobre el mismo archivo (sin archivos intermedios ni en memoria).**  
 
-ejercicio9.c *no anda*
+ejercicio9.c *no anda, agregar hton*
 
 **10) Implemente una función C++ denominada DobleSiNo que reciba dos listas de elementos y devuelva una nueva lista duplicando los elementos de la primera que no están en la segunda:**  
 ```

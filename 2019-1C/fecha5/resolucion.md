@@ -1,6 +1,6 @@
 **1) Escriba una rutina (para ambiente gráfico Windows o Linux) que dibuje un triángulo amarillo del tamaño de la ventana.**
 
-*falta (QT)*
+*falta (sdl)*
 
 **2) Escriba las siguientes definiciones/declaraciones:**
 **A) Declaración de un puntero a puntero a entero largo con signo.**

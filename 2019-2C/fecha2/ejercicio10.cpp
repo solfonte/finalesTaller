@@ -8,7 +8,7 @@ asumo que la clase T tiene implementado el operador ==
 **/
 #include <list>
 #include <iterator>
-#include <iostream>
+#include <iostream>//no va enrealidad
 
 std::list<int> DobleSiNo(std::list<int> a,std::list<int> b){
   std::list<int> listaFinal;
@@ -36,12 +36,13 @@ int main(){
   a.push_back(2);
   a.push_back(3);
   a.push_back(4);
+  a.push_back(9);
+
   std::list<int> b;
   b.push_back(1);
   b.push_back(5);
   b.push_back(3);
   b.push_back(4);
-
   std::list<int> c = DobleSiNo(a,b);
   std::list<int>::iterator it;
   for (it = c.begin(); it != c.end(); ++it){

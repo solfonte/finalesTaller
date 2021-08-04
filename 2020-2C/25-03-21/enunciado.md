@@ -28,7 +28,7 @@ Al llamar a la funcion acumular de acumulador, lo que ocurrira es que el hilo qu
 
 **5) Escriba un programa que reciba por línea de comandos un Puerto y una IP. El programa debe conectarse y quedar en escucha de paquetes con la forma “d..d+d..d+...=”. El programa debe imprimir en stdout cada suma hasta que la misma sea 0 (cero). En ese caso debe finalizar ordenadamente.**
 
-*falta(sockets)*
+resuelto en ejercicio5.cpp
 
 **6) Describa con exactitud las siguientes declaraciones/definiciones globales:**
 		**- char *(*A)();**: A es la declaracion de un puntero a una funcion que no recibe parametros y devuelve un puntero a un dato de tipo char.
@@ -46,7 +46,7 @@ Al llamar a la funcion acumular de acumulador, lo que ocurrira es que el hilo qu
 ```
 std::list<T> SoloMultiplos(std::list<T> a,T x);
 ```
-*falta(listas c++)*
+resuelto en ejercicio8.cpp
 
 **9) ¿Se puede evitar que un objeto de una clase sea copiado?¿y clonado?. En caso afirmativo explique cómo puede hacerse. En caso negativo explique por qué no se puede.**
 

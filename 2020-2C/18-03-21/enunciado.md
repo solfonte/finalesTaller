@@ -2,7 +2,7 @@
 **donde [CHAR_LIM] puede ser cualquier caracter ASCII**
 **Al completar la recepción del paquete deberá imprimir el caracter con más apariciones del mismo (sin considerar [CHAR_LIM]). Al recibir un paquete vacío ([CHAR_LIM][CHAR_LIM]) debe cerrarse ordenadamente. No considere errores.**
 
-*falta(sockets)*
+resuelto en ejercicio1.cpp
 
 **2) ¿Qué función se utiliza para lanzar hilos?¿Qué parámetros tiene y para qué sirven? Ejemplifique.**
 
@@ -60,7 +60,7 @@ return c+(float) d;
 
 **9) Escriba una función ISO C que permita procesar sobre sí mismo (sin generar archivos intermedios ni cargar el archivo completo a memoria) un archivo texto con palabras separadas por espacios. El procesamiento consiste en duplicar las palabras que tengan al menos de 2 vocales.**
 
-*falta (archivos de texto)*
+
 
 **10) ¿Qué es la compliación condicional? Ejemplifique**
 

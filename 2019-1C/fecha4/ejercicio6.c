@@ -26,7 +26,7 @@ int main(int argc,const char* argv[]){
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_flags = 0;
 
-  getaddrinfo(NULL,port,&hints,&res);
+  getaddrinfo(host,port,&hints,&res);
   int sock_fd = socket(res->ai_family,res->ai_socktype,res->ai_protocol);
   connect(sock_fd,res->ai_addr,res->ai_addrlen);
   freeaddrinfo(res);
@@ -34,7 +34,6 @@ int main(int argc,const char* argv[]){
   char buff;
   bool termine = false;
   bool hubo_error = false;
-  size_t bytes_rcv = 0;
   char fin[] = "FIN";
   int i = 0;
   while (!termine && !hubo_error){
