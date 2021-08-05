@@ -1,39 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <unistd.h>
-#define TAM_MAX 800
-/*
-static int obtenerLineaCorregida(char leido[TAM_MAX],FILE* read){
-  char aux;
-  int bytes = 0, cantLetras = 0,i = 0;
-  fread(&aux,sizeof(char),1,read);
 
-  while (aux != '\n' && !feof(read)){
-    if (aux != ' '){
-      cantLetras++;
-      leido[i] = aux;
-      i++;
-      bytes++;
-    }else{
-      if (cantLetras > 3){
-        i = i - cantLetras;
-        bytes = bytes - cantLetras;
-      }else{
-        leido[i] = aux;
-        i++;
-        bytes++;
-      }
-    }
-    fread(&aux,1,1,read);
-  }
-  if (aux == '\n'){
-    leido[i] = aux;
-    i++;
-    bytes++;
-  }
-  return bytes;
-}
-*/
 //funcion pedida
 void procesarArchivo(const char* path){
 
