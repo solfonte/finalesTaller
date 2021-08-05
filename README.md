@@ -15,12 +15,14 @@ Resueltos de finales del curso Veiga.
 ```
 
   - Host to Network
-```
-    htons(short int) htonl(int)
-```
+  ```
+    uint16_t htons(uint16_t hostshort);
+    uint32_t htonl(uint32_t hostlong);
+  ```
   - Network to Host
   ```
-  ntohs(short int) ntohl(int)
+  uint16_t ntohs(uint16_t netshort);
+  uint32_t ntohl(uint32_t netlong);
   ```
 
 * Segmentos de memoria:

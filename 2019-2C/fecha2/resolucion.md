@@ -42,7 +42,7 @@ Este patron de disenio es un patron utilizado para el manejo de recursos y consi
 
 **9) Escribir un programa ISO C que procese el archivo de enteros de 2 bytes bigendian cuyo nombre es recibido como parámetro. El procesamiento consiste en eliminar los número múltiplos de 3, trabajando sobre el mismo archivo (sin archivos intermedios ni en memoria).**  
 
-ejercicio9.c *no anda, agregar hton*
+ejercicio9.c 
 
 **10) Implemente una función C++ denominada DobleSiNo que reciba dos listas de elementos y devuelva una nueva lista duplicando los elementos de la primera que no están en la segunda:**  
 ```

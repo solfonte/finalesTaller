@@ -11,22 +11,25 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <arpa/inet.h>
 
 void procesarArchivo(FILE* read,FILE* write){
   uint16_t num;
+  uint16_t aux;
+
   int bytes = 0,cantLeido = 0;
   char numeroTexto[1000];
-
+  cantLeido = fread(&num,sizeof(uint16_t),1,read);
   while (!feof(read)){
-    cantLeido = fread(&num,sizeof(uint16_t),1,read);
-      if (num % 3 != 0){
-        //no es multiplo de 3
-        printf("no es multiplo de 3\n");
-        bytes += fwrite(&num,sizeof(uint16_t),1,write);
+    aux = htons(num);
+      if (aux % 3 != 0){
+       fwrite(&num,sizeof(uint16_t),1,write);
+       bytes += sizeof(uint16_t);
      }
-      fseek(write,-bytes,SEEK_CUR);
-      ftruncate(fileno(write),bytes);
+     cantLeido = fread(&num,sizeof(uint16_t),1,read);
   }
+   rewind(write);
+   ftruncate(fileno(write),bytes);
 }
 
  int main(int argc, char const *argv[]) {
