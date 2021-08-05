@@ -2,11 +2,12 @@
 #include <stdbool.h>
 #include <unistd.h>
 #define TAM_MAX 800
-
+/*
 static int obtenerLineaCorregida(char leido[TAM_MAX],FILE* read){
   char aux;
   int bytes = 0, cantLetras = 0,i = 0;
   fread(&aux,sizeof(char),1,read);
+
   while (aux != '\n' && !feof(read)){
     if (aux != ' '){
       cantLetras++;
@@ -14,7 +15,7 @@ static int obtenerLineaCorregida(char leido[TAM_MAX],FILE* read){
       i++;
       bytes++;
     }else{
-      if (cantLetras <= 3){
+      if (cantLetras > 3){
         i = i - cantLetras;
         bytes = bytes - cantLetras;
       }else{
@@ -32,22 +33,36 @@ static int obtenerLineaCorregida(char leido[TAM_MAX],FILE* read){
   }
   return bytes;
 }
-
+*/
 //funcion pedida
 void procesarArchivo(const char* path){
 
   FILE* read = fopen(path,"r");
   FILE* write = fopen(path,"r+");
 
-  int bytesTotales = 0,tamLinea;
-  char leido[TAM_MAX];
+  int bytesTotales = 0;
 
+  int cantLetras = 0;
+  char aux;
+  fread(&aux,sizeof(char),1,read);
   while (!feof(read)){
-    tamLinea = obtenerLineaCorregida(leido,read);
-    fwrite(leido,sizeof(char),tamLinea,write);
-    bytesTotales += tamLinea;
+
+    while (aux != ' ' && aux != '\n' && !feof(read)){
+      cantLetras++;
+      fwrite(&aux,sizeof(char),1,write);
+      fread(&aux,sizeof(char),1,read);
+    }
+    if (cantLetras > 3){
+      fseek(write,-cantLetras,SEEK_CUR);
+    }else{
+      bytesTotales += cantLetras;
+    }
+    fwrite(&aux,sizeof(char),1,write);
+    bytesTotales++;
+    fread(&aux,sizeof(char),1,read);
+    cantLetras = 0;
   }
-  fseek(write,bytesTotales,SEEK_CUR);
+  rewind(write);
   ftruncate(fileno(write),bytesTotales);
   fclose(write);
   fclose(read);
