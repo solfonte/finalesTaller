@@ -43,7 +43,7 @@ return c+(int) d;
 ```
 **5) Escriba una rutina que dibuje las dos diagonales de la pantalla en color rojo..**  
 
-*falta (sdl)*
+resuelto en ejercicio5.c
 
 **6) ¿Por qué las librerías que usan Templates se publican con todo el código fuente y no como un .h y .o/.obj?.**  
 

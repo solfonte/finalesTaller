@@ -231,7 +231,7 @@ Para compilar los ejercicios de gui:
 gcc `sdl2-config --cflags` -std=c11 ejercicio5.c -lSDL2 -lSDL2_gfx -o gfx
 ```
 
-https://github.com/Taller-de-Programacion/clases/tree/master/bibliotecas-gui
+Para ver como formar los colores en RGB: https://es.wikipedia.org/wiki/RGB#:~:text=La%20ausencia%20de%20color%2C%20es,magenta%20(255%2C0%2C255)
 
 Referencias:
 Diapositivas del curso Veiga.  

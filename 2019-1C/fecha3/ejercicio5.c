@@ -8,7 +8,6 @@
 
 #define WIDTH 640
 #define HEIGHT 480
-#define MIN (((HEIGHT) < (WIDTH))? HEIGHT : WIDTH)
 #define N 7
 
 int main(){
@@ -18,7 +17,6 @@ int main(){
   window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
   SDL_Event e;
-  int begin = 1;
   int quit = 0;
 
   while (!quit){
@@ -30,14 +28,9 @@ int main(){
   SDL_RenderClear(renderer);
 
   lineRGBA(renderer, 0, 0, WIDTH, HEIGHT, 0xff, 0x00, 0x00, 0xff);
-  lineRGBA(renderer, WIDTH, 0, 0, HEIGHT, 0xff, 0x00, 0x00, 0xff);//verde
-
-  //lineRGBA(renderer, WIDTH, 0, 0, HEIGHT, 0x00, 0xff, 0x00, 0xff);//verde
-//  lineRGBA(
-//renderer, 0, HEIGHT / 2, WIDTH, HEIGHT / 2, 0x00, 0x00, 0xff, 0xff);//azul
+  lineRGBA(renderer, WIDTH, 0, 0, HEIGHT, 0xff, 0x00, 0x00, 0xff);
   SDL_RenderPresent(renderer);
   SDL_Delay(10);
-  begin = 0;
   }
 
   SDL_DestroyRenderer(renderer);
