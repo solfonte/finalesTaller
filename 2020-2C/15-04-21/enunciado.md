@@ -13,7 +13,7 @@ f es un puntero a un puntero de una funcion que recibe como parametros un punter
 
 **3) Escribir un programa ISO C que procese el archivo “nros2bytes.dat” sobre sí mismo, duplicando los enteros de 2 bytes múltiplos de 3.**
 
-*falta este (archivos binarios)*
+resuelto en fecha 1 2C 2019.
 
 **4) ¿Cómo se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.**
 

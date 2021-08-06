@@ -28,7 +28,6 @@ void procesarArchivo(FILE* read,FILE* write){
      }
      cantLeido = fread(&num,sizeof(uint16_t),1,read);
   }
-   rewind(write);
    ftruncate(fileno(write),bytes);
 }
 

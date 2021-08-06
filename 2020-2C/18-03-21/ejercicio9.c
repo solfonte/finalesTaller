@@ -44,7 +44,6 @@ void procesarArchivo(const char* path){
     }
     fread(&aux,sizeof(char),1,read);
   }
-  rewind(write);
   ftruncate(fileno(write),bytesTot);
   fclose(read);
   fclose(write);

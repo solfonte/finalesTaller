@@ -7,9 +7,7 @@ resuelto en numero.h
 
 **2) ¿Qué es un functor? ¿Qué ventaja ofrece frente a una función convencional? Ejemplifique.**  
 
-Es la sobrecarga del operador(). Se usa para definir objetos que pueden ser llamados como funciones. Se usa principalmente para los objetos que de alguna manera se comportan como funciones.
-
-*faltan las ventajas*
+Es la sobrecarga del operador(). Se usa para definir objetos que pueden ser llamados como funciones. Se usa principalmente para los objetos que de alguna manera se comportan como funciones. La ventaja de los functors es permiten que la clase reciba los argumentos una vez, al momento de construirse por ejemplo, y que la clase se los guarde como atributos.
 
 Ejemplo:
 ```
@@ -51,7 +49,7 @@ Porque el código template es procesado por el compilador y depende de tipo de d
 
 **7) ¿Qué características debe tener un compilador C para se considerado “portable”?**  
 
-Para que un compilador sea portable debe poder implementarse en todas las arquitecturas.
+Un compilador C portable es aquel que soporta la sintaxis (y semantica) del lenguage C dado un estandar y que no agrega ninguna sintaxis adicional por fuera del estandar (de tal manera que el mismo codigo podria ser compilado por otro compilador). Esto incluye tambien el proceso de compilacion estandar (precompilacion, compilacion, linkeo). Ademas el compilador debe ofrecer una implementacion a la libreria estandar de C respetando el estandar de C mencionado anteriormente tal que un programa compilado en un entorno pueda ser ejecutado en otro que tenga una libreria C compatible.
 
 **8) Escriba un programa (desde la inicialización hasta la liberación de los recursos) que reciba paquetes de la forma [nnn+nn+....+nnnn] (numeros separados por +, encerrados entre corchetes) e imprima el resultado de la suma de cada paquete por pantalla. Al recibir un paquete vacío (“[]”) debe cerrarse ordenadamente. No considere errores.**  
 

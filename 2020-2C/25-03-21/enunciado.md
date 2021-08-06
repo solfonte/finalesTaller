@@ -4,11 +4,13 @@
 
 **2) Escriba una rutina que dibuje un rombo azul del tamaño de la pantalla.**
 
-*falta(sdl)*
+ejercicio.c
 
 **3) Escribir un programa ISO C MULTIPLATAFORMA que procese el archivo “bigEndian.dat” sobre sí mismo, leyendo nros. de 4 bytes Big-Endian y triplicando los impares.**
 
-*falta(archivos binarios)*
+resuelto parecido en final fecha 1 2019 2C. Cambia:  
+* en lugar de usar ```uint16_t``` se usa ```uint32_t```.
+* en lugar de chequear ``` num % 3 == 0```, se debe verificar ```num % 2 == 1```.
 
 **4) ¿Qué es un Deadlock? Ejemplifique.**
 

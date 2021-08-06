@@ -39,7 +39,6 @@ static void procesarArchivo(FILE* read,FILE* write){
     fwrite(leido,sizeof(char),tamLinea,write);
     bytesTotales += tamLinea;
   }
-  fseek(write,bytesTotales,SEEK_CUR);
   ftruncate(fileno(write),bytesTotales);
 }
 
