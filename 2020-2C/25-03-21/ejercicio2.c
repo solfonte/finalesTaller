@@ -4,7 +4,6 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
-#include <assert.h>
 #include <stdio.h>
 
 #define WIDTH 640
@@ -23,7 +22,6 @@ int main(){
   const short rhombus_x [] = {WIDTH / 2, WIDTH, WIDTH / 2, 0};
   const short rhombus_y [] = {0, HEIGHT / 2, HEIGHT, HEIGHT / 2};
 
-  assert(sizeof(rhombus_x) == sizeof(rhombus_y));
   const int rhombus_n_points = sizeof(rhombus_x) / sizeof(rhombus_x[0]);
 
   while (!quit){

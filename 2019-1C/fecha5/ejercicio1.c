@@ -4,7 +4,6 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
-#include <assert.h>
 #include <stdio.h>
 
 #define WIDTH 640
@@ -23,7 +22,6 @@ int main(){
   const short rhombus_x [] = {WIDTH / 2, WIDTH, WIDTH / 2, 0};
   const short triangle_x[] = { WIDTH / 2, WIDTH, 0 };
   const short triangle_y[] = {0, HEIGHT - 1, HEIGHT - 1}; // offset a little to see the line
-  assert(sizeof(triangle_x) == sizeof(triangle_y));
   const int triangle_n_points = sizeof(triangle_x) / sizeof(rhombus_x[0]);
 
   while (!quit){

@@ -3,7 +3,6 @@
 */
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
-#include <assert.h>
 #include <stdio.h>
 
 #define WIDTH 640
