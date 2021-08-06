@@ -228,7 +228,11 @@ bool operator==(const Complex& other) const{
 
 Para compilar los ejercicios de gui:  
 ```
-gcc `sdl2-config --cflags` -std=c11 ejercicio5.c -lSDL2 -lSDL2_gfx -o gfx
+gcc `sdl2-config --cflags` -std=c11 NOMBRE_DEL_ARCHIVO_C -lSDL2 -lSDL2_gfx -o gfx
+```
+Para correrlo:
+```
+./gfx
 ```
 
 Para ver como formar los colores en RGB: https://es.wikipedia.org/wiki/RGB#:~:text=La%20ausencia%20de%20color%2C%20es,magenta%20(255%2C0%2C255)
