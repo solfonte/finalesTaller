@@ -226,6 +226,11 @@ bool operator==(const Complex& other) const{
 ```
 # UI
 
+Para compilar los ejercicios de gui:  
+```
+gcc `sdl2-config --cflags` -std=c11 ejercicio5.c -lSDL2 -lSDL2_gfx -o gfx
+```
+
 https://github.com/Taller-de-Programacion/clases/tree/master/bibliotecas-gui
 
 Referencias:
