@@ -69,6 +69,7 @@ https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 * Con los destructores (si estan bien escritos, se usa RAII y usamos el stack) no vamos a tener leaks.
 * Los destructores se llaman automáticamente cuando el objeto se va de scope.
 * Todos los objetos tienen un destructor.
+* Las clases abstractas son las que tienen un método virtual puro.
 
 Links:
   * https://taller-de-programacion.github.io/blog/2010/08/21/Constructor-de-copia-Orden.html
