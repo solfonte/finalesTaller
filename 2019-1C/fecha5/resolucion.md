@@ -28,22 +28,25 @@ ej 10 primera fecha
 
 
 **6) Explique qué son los métodos virtuales puros y para qué sirven. De un breve ejemplo donde su uso sea imprescindible.**  
-Los metodos virtuales puros son un tipo de metodo virtual y son los que se declaran como ```virtual .... = 0 ```. Estos son metodos abstractos que deben ser implementados por las clases derivadas de la clase que declara dicho metodo virtual puro. Sirven para poder aplicar polimorfismo, para que las distintas clases derivadas tengan un comportamiento distinto al invocarse este metodo. Un ejemplo imprescindile es el caso en el que queremos declarar un metodo sin que exista la definición correspondiente.
 
+Los metodos virtuales puros son un tipo de metodo virtual y son los que se declaran como ```virtual .... = 0 ```. Estos son metodos abstractos que deben ser implementados por las clases derivadas de la clase que declara dicho metodo virtual puro. Sirven para poder aplicar polimorfismo, para que las distintas clases derivadas tengan un comportamiento distinto al invocarse este metodo. Un ejemplo imprescindile es el caso en el que queremos declarar un metodo sin que exista la definición correspondiente.
 
 **7) Escribir un programa C que procese el archivo “numeros.txt” sobre sí mismo (sin crear archivos intermedios y sin subir el archivo a memoria). El procesamiento consiste en leer nros hexadecimales de 4 símbolos y reemplazarlos por su valor decimal (en texto).**  
 
 resuelto en la fecha 2
 
 **8) ¿Qué es el polimorfismo? Ejemplifique mediante código.**  
-En C++, significa que la misma llamada a función tiene distintos comportamientos dependiendo del tipo del objeto. La unica condicion es que los distintos objetos entiendan el mensaje que se les envia.  
+
+Es una propiedad 9en la programacion orientada a objetos) por la cual la misma llamada a función tiene distintos comportamientos dependiendo del tipo del objeto. La unica condicion es que los distintos objetos entiendan el mensaje que se les envia.  
 Por ejemplo, si tenemos la clase Figura:
+
 ```
 class Figura{
   public:
     virtual float area() = 0;
 }
 ```
+
 podemos definir las siguientes clases:
 
 ```

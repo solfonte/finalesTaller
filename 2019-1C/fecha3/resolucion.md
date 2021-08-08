@@ -7,7 +7,7 @@ resuelto en numero.h
 
 **2) ¿Qué es un functor? ¿Qué ventaja ofrece frente a una función convencional? Ejemplifique.**  
 
-Es la sobrecarga del operador(). Se usa para definir objetos que pueden ser llamados como funciones. Se usa principalmente para los objetos que de alguna manera se comportan como funciones. La ventaja de los functors es permiten que la clase reciba los argumentos una vez, al momento de construirse por ejemplo, y que la clase se los guarde como atributos.
+Es la sobrecarga del operador(). Se usa para definir objetos que pueden ser llamados como funciones. La ventaja de los functors es que permiten que la clase reciba los argumentos una vez, al momento de construirse por ejemplo, y que la clase se los guarde como atributos.
 
 Ejemplo:
 ```
@@ -39,6 +39,9 @@ static int c; char d=65;
 return c+(int) d;
 }
 ```
+
+resuelto en final del 18-03-21.
+
 **5) Escriba una rutina que dibuje las dos diagonales de la pantalla en color rojo..**  
 
 resuelto en ejercicio5.c
@@ -63,7 +66,7 @@ resuelto
 diferencia en la primera fecha
 Por ejemplo:
 
-```
+```c
 class Nombre{
   private:
     std::string cadena;

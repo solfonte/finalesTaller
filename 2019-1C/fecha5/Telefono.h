@@ -2,14 +2,15 @@
 #define __TELEFONO_H__
 
 #include <iostream>
+#include <string>
 
 class Telefono{
 
   private:
-    int numero;
+    std::string numero;
     int area;
   public:
-    Telefono(const int& numero,const int& area):numero(numero),area(area){}
+    Telefono(const std::string& numero,const int& area):numero(numero),area(area){}
     Telefono(Telefono&& otroTelefono);
     Telefono(Telefono& telefono);
     std::ostream& operator<<(std::ostream& out,const Telefono& telefono);

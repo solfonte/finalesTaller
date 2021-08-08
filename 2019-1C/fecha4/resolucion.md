@@ -9,7 +9,7 @@ respuesta en segunda o primera fecha
 char (*f) (int *, char[3]);
 ```
 
-f es la declaracion de un puntero a una funcion que devuelve un tipo de dato char. Recibe por parametro un puntero a un tipo de dato int y un arreglo de tipo char de tres elementos.  
+f es un puntero a una funcion que devuelve un tipo de dato char. Recibe por parametro un puntero a un tipo de dato int y un arreglo de tipo char de tres elementos.  
 
 **4) Escribir un programa ISO C que procese el archivo “nros_2bytes_bigendian.dat” sobre sí mismo, eliminando los número múltiplos de 7.**  
 
@@ -40,6 +40,7 @@ En archivo complejo.h
   c- Es un atributo que pertenece a la clase y no a un objeto en particular. El scope es global y el lifetime es mientras dure la ejecucion del programa.
 
 **9) ¿Cómo se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.**  
+
 Lo que se hace para lograr esto es hacer una clase protegida, donde se encapsula el recurso compartido junto con su mutex correspondiente. Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que cuando un hilo acceda a el, si otro hilo quiere acceder no podra ya que estara lockeado. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
 Definimos las clase que contiene el recurso que sera protegido. Para el caso del ejemplo, es una lista protegida de enteros.
 
@@ -53,7 +54,7 @@ Class listaProtegida{
     m.lock();
 
     if (!lista.has(x)){
-      lista.add(x)
+      lista.add(x);
     }
 
     m.unlock();

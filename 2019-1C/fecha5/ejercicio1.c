@@ -1,6 +1,6 @@
-/*
-**1) Escriba una rutina (para ambiente gráfico Windows o Linux) que dibuje un triángulo amarillo del tamaño de la ventana.**
-*/
+/***
+Escriba una rutina (para ambiente gráfico Windows o Linux) que dibuje un triángulo amarillo del tamaño de la ventana.
+***/
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
@@ -11,7 +11,6 @@
 #define N 7
 
 int main(){
-  //SDL_Init(SDL_INIT_VIDEO); creo que no va
   SDL_Window* window = SDL_CreateWindow("SDL2 GFX", 100, 100, WIDTH, HEIGHT, SDL_WINDOW_OPENGL);
   SDL_Renderer* renderer = SDL_CreateRenderer(
   window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -21,7 +20,7 @@ int main(){
 
   const short rhombus_x [] = {WIDTH / 2, WIDTH, WIDTH / 2, 0};
   const short triangle_x[] = { WIDTH / 2, WIDTH, 0 };
-  const short triangle_y[] = {0, HEIGHT - 1, HEIGHT - 1}; // offset a little to see the line
+  const short triangle_y[] = {0, HEIGHT - 1, HEIGHT - 1};
   const int triangle_n_points = sizeof(triangle_x) / sizeof(rhombus_x[0]);
 
   while (!quit){

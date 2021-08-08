@@ -12,6 +12,7 @@ class Complejo{
     operator float() const;
     bool esImaginarioPuro() const;
     Complejo obtenerConjugado() const;
+    float obtenerArgumento() const;
     Complejo& operator=(const Complejo& otroComplejo);
 };
 

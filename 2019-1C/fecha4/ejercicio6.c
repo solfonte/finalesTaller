@@ -41,13 +41,14 @@ int main(int argc,const char* argv[]){
     if (resultado == -1){
       hubo_error = true;
     }else if (fin[i] == buff){
+      i++;
       if (i == 3) termine = true;
     }else{
       fwrite(&buff,sizeof(buff),1,stdout);
       i = 0;
     }
   }
-
+  
   shutdown(sock_fd,SHUT_RDWR);
   close(sock_fd);
 

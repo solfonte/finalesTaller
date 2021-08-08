@@ -1,3 +1,8 @@
+/***Escriba un programa C que tome 2 cadenas por línea de comandos: A y B; e imprima la
+cadena A después de haber duplicado todas las ocurrencias de B..
+ej.: reemp.exe “El final está aprobado” aprobado -----> El final está aprobado aprobado
+***/
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

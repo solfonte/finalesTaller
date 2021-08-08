@@ -1,4 +1,8 @@
-
+/***
+Escriba una función ISO C llamada Replicar que reciba 1 cadena (S), dos índices (I1 e I2)
+y una cantidad (Q). La función debe retornar una copia de S salvo los caracteres que se encuentran
+entre los índices I1 e I2 que serán duplicados Q veces.Ej. replicar(“Hola”, 1, 2, 3) retorna “Hololola”.
+***/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -31,7 +35,7 @@ char* Replicar (char* cadena,int i1,int i2,int q){
     aux[i] = cadena[i2 + k];
     k++;
   }
-  aux = '\0';
+  aux[i + 1] = '\0';
   return aux;
 }
 
@@ -40,5 +44,6 @@ int main(){
   char cadena[] = "hola";
   char* replica = Replicar(cadena,1,2,3);
   printf("cadena3: %s \n",replica);
+  free(replica);
   return 0;
 }

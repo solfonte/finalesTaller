@@ -4,7 +4,7 @@
 #include <ostream>
 #include <istream>
 
-class Numero(){
+class Numero{
   private:
     unsigned long numero;
   public:

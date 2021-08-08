@@ -1,3 +1,10 @@
+/***
+Escriba un programa que imprima por salida estándar los números entre 1 y 100, en orden ascendente.
+Se pide que los números sean contabilizados por una variable global única y que los pares sean escritos
+por un hilo mientras que los impares sean escritos por otro.
+Contemple la correcta sincronización entre hilos y la liberación de los recursos utilizados.
+***/
+
 #include <iostream>
 #include <thread>
 #include <utility>
@@ -19,11 +26,11 @@ class NumerosProtegidos{
 
     bool imprimirSiElProximoEsPar(){
       std::lock_guard<std::mutex> lck(this->mutex);
-      if (this->proximaPosicionImprimir % 2 == 0 && this->proximaPosicionImprimir <= 100){
+      if (this->proximaPosicionImprimir % 2 == 0 && this->proximaPosicionImprimir < 100){
         std::cout << " " << this->numeros[this->proximaPosicionImprimir] << " ";
         this->proximaPosicionImprimir ++;
       }
-      return (proximaPosicionImprimir > 100? true:false);
+      return (proximaPosicionImprimir >= 100? true:false);
     }
 
     bool imprimirSiElProximoEsImpar(){
@@ -32,35 +39,32 @@ class NumerosProtegidos{
         std::cout << " " << this->numeros[this->proximaPosicionImprimir] << " ";
         this->proximaPosicionImprimir ++;
       }
-      return (proximaPosicionImprimir > 100? true:false);
+      return (proximaPosicionImprimir >= 100? true:false);
     }
 };
 
-
-void imprimirNumerosPares(NumerosProtegidos* numeros){
+void imprimirNumerosPares(NumerosProtegidos& numeros){
   bool termine = false;
   while (!termine){
-    termine = numeros->imprimirSiElProximoEsPar();
+    termine = numeros.imprimirSiElProximoEsPar();
   }
 }
 
-void imprimirNumerosImpares(NumerosProtegidos* numeros){
+void imprimirNumerosImpares(NumerosProtegidos& numeros){
   bool termine = false;
   while (!termine){
-    termine = numeros->imprimirSiElProximoEsImpar();
+    termine = numeros.imprimirSiElProximoEsImpar();
   }
-
 }
 
 int main(){
 
   NumerosProtegidos numeros;
-  std::thread threadPar(imprimirNumerosPares, &numeros);
-  std::thread threadImpar(imprimirNumerosImpares, &numeros);
+  std::thread threadPar(imprimirNumerosPares,std::ref(numeros));
+  std::thread threadImpar(imprimirNumerosImpares,std::ref(numeros));
 
   threadPar.join();
   threadImpar.join();
-
 
   return 0;
 }

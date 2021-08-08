@@ -1,6 +1,7 @@
-/*
-**5) Escriba una rutina que dibuje las dos diagonales de la pantalla en color rojo..**
-*/
+/***
+Escriba una rutina que dibuje las dos diagonales de la pantalla en color rojo..
+***/
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <stdio.h>
@@ -10,7 +11,6 @@
 #define N 7
 
 int main(){
-//  SDL_Init(SDL_INIT_VIDEO); creo que no va
   SDL_Window* window = SDL_CreateWindow("SDL2 GFX", 100, 100, WIDTH, HEIGHT, SDL_WINDOW_OPENGL);
   SDL_Renderer* renderer = SDL_CreateRenderer(
   window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
