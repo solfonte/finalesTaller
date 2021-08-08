@@ -26,7 +26,7 @@ class Acumulador{
 	}
 }
 ```
-Al llamar a la funcion acumular de acumulador, lo que ocurrira es que el hilo que la ejecute realizara un lock pero nunca un unlock, con lo cual ningun otro thread acceder a la ejecucion de dicha funcion.
+Al llamar a la funcion acumular de acumulador, lo que ocurrira es que el hilo que la ejecute realizara un lock pero nunca un unlock, con lo cual ningun otro thread podra acceder a la ejecucion de dicha funcion.
 
 **5) Escriba un programa que reciba por línea de comandos un Puerto y una IP. El programa debe conectarse y quedar en escucha de paquetes con la forma “d..d+d..d+...=”. El programa debe imprimir en stdout cada suma hasta que la misma sea 0 (cero). En ese caso debe finalizar ordenadamente.**
 
@@ -52,9 +52,7 @@ resuelto en ejercicio8.cpp
 
 **9) ¿Se puede evitar que un objeto de una clase sea copiado?¿y clonado?. En caso afirmativo explique cómo puede hacerse. En caso negativo explique por qué no se puede.**
 
-Se puede evitar que un objeto sea copiado. Lo que debemos hacer es eliminar su constructor copia. Ademas podemos evitar que sea clonado, definiendo su constructor por movimiento. Asi, si se intentara clonar, en lugar de haber dos objetos apuntando a los mismos recursos, los recursos de uno se transfieren al otro.  
+Se puede evitar que un objeto sea copiado. Lo que debemos hacer es eliminar su constructor copia y el operador asignacion por copia. Ademas podemos evitar que sea clonado, definiendo su constructor por movimiento. Asi, si se intentara clonar, en lugar de haber dos objetos siendo "duenios" de los mismos recursos, los recursos de uno se transfieren al otro.  
 
 **10) ¿Qué es un thread?¿Qué recursos comparte con otros threads del mismo proceso?¿Cuales son exclusivos (no compartidos)?**
 Un thread es una ejecucion de un bloque de codigo. Cuando tenemos multiples hilos, estos bloques de codigo se ejecutan de manera concurrente. Los recursos que se comparten por los hilos de un mismo programa son el code segment, el data segment, el heap y los file descriptors. Los exclusivos son los registros y el stack.
-
-(A thread is the system-level representation of a computer’s facilities for executing a task. We use threads when several tasks in a program need to progress concurrently.(stroustup))

@@ -2,7 +2,7 @@
 ```
 int (*f) (short int *, char[3]);
 ```
-f es la declaracion de un puntero a una funcion que devuelve un tipo de dato int. La misma recibira un puntero a un short int y un vector de tipo char de tamanio 3.
+f es un puntero a una funcion que devuelve un tipo de dato int. La misma recibe un puntero a un short int y un vector de tipo char de 3 elementos.
 
 **2) Explique qué es cada uno de los siguientes, haciendo referencia a su inicialización, su comportamiento y el area de memoria donde residen:**
   **a) Una variable global static.**

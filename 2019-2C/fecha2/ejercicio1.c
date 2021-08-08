@@ -1,9 +1,10 @@
-/***1) Escriba un programa (desde la inicialización hasta la liberación de
+/***
+Escriba un programa (desde la inicialización hasta la liberación de
 los recursos) que reciba paquetes de la forma nnn+nn+....+nnnn= (numeros
 separados por +, seguidos de =) e imprima el resultado de la suma de cada
-paquete por pantalla. Al recibir un paquete
-vacío (“=”) debe cerrarse ordenadamente. No considere errores.**
-*/
+paquete por pantalla. Al recibir un paquete vacío (“=”) debe cerrarse ordenadamente.
+No considere errores.
+***/
 
 #include <stdio.h>
 #include <stdlib.h>

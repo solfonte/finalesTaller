@@ -19,7 +19,22 @@ std::thread(f,1);
 
 **3) ¿Qué finalidad tiene la palabra virtual antepuesta a un método? Ejemplifique.**
 
-(resuelto en otro final)
+La finalidad es la declaracion de funciones que pueden ser redefinidas por clases derivadas a una clase. Asi, podemos aplicar polimorfismo. Por ejemplo:
+```c
+class Base {
+	public:
+		virtual void metodo() {
+			std::cout << "Base\n";
+		}
+};
+
+class Derivada: public Base {
+	public:
+		virtual void metodo() {
+			std::cout << "Derivada\n";
+		}
+};
+```
 
 **4) Implemente una función C++ denominada DUPLICAR que reciba dos listas de elementos y devuelva una nueva lista duplicando los elementos de la primera que están en la segunda:**
 		**std::list<T> Duplicar(std::list<T> a,std::list<T> b);**
@@ -52,7 +67,7 @@ return c+(float) d;
 
 **7) Escriba una rutina que dibuje un rombo verde que ocupe toda la ventana.**
 
-*falta(sdl)*
+resuelto parecido en el final del 25-03-21.
 
 **8) ¿Qué diferencia existe entre un constructor por copia y uno por movimiento? Ejemplifique.**
 
