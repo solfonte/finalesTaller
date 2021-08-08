@@ -8,36 +8,35 @@ a memoria). El procesamiento consiste en eliminar las líneas de 1 sola palabra.
 #include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
-#define TAM_MAX 800
-
-static int obtenerLineaCorregida(char leido[TAM_MAX],FILE* read){
-  char aux = '\0';
-  int i = 0, espacios = 0, bytes = 0;
-  while(aux != '\n' && !feof(read)){
-    fread(&aux,sizeof(char),1,read);
-    if (aux == ' '){
-      espacios++;
-    }
-    printf("%c",aux);
-    leido[i] = aux;
-    i++;
-    bytes++;
-  }
-  if (espacios == 0){
-    bytes = 0;
-  }
-  return bytes;
-}
 
 static void procesarArchivo(FILE* read,FILE* write){
 
-  int bytesTotales = 0, tamLinea;
-  char leido[TAM_MAX];
+  int bytesTotales = 0, tamLinea = 0, espacios = 0;
+  char aux;
+
+  fread(&aux,sizeof(aux),1,read);
 
   while(!feof(read)){
-    tamLinea = obtenerLineaCorregida(leido,read);
-    fwrite(leido,sizeof(char),tamLinea,write);
+//itero por linea
+    while(aux != '\n' && !feof(read)){
+      fwrite(&aux,sizeof(aux),1,write);
+      if (aux == ' '){
+        espacios++;
+      }
+      tamLinea++;
+      fread(&aux,sizeof(aux),1,read);
+    }
+
+//cuento los espacios de la linea
+    if (espacios == 0){
+      fseek(write,-tamLinea,SEEK_CUR);
+  }else{
+    bytesTotales += fwrite(&aux,sizeof(aux),1,write);
     bytesTotales += tamLinea;
+  }
+  espacios = 0;
+  tamLinea = 0;
+  fread(&aux,sizeof(aux),1,read);
   }
   ftruncate(fileno(write),bytesTotales);
 }

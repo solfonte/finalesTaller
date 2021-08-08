@@ -29,11 +29,10 @@ void procesarArchivo(const char* path){
     if (cantLetras > 3){
       fseek(write,-cantLetras,SEEK_CUR);
     }else{
+      bytesTotales += fwrite(&aux,sizeof(char),1,write);
       bytesTotales += cantLetras;
     }
 
-    fwrite(&aux,sizeof(char),1,write);
-    bytesTotales++;
     fread(&aux,sizeof(char),1,read);
     cantLetras = 0;
   }
