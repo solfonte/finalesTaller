@@ -40,25 +40,30 @@ int main(int argc,const char* argv[]){
 
    char buff;
    bool termine = false;
-   bool hubo_error = false;
-   size_t bytes_recv = 0;
    int acumulador = 0;
+   int numero;
+   std::string numTexto;
 
-   while (hubo_error != 0 && !termine){
-     ssize_t resultado = recv(sock_fd,&buff,sizeof(buff),0);
-     if (resultado == -1){
-       hubo_error = true;
-     }else if (buff != '+' && buff != '='){
-       int numero = std::stoi(&buff);
+   while (!termine){
+     recv(sock_fd,&buff,sizeof(buff),0);
+     if (buff == '+'){
+       numero = std::stoi(numTexto);
        acumulador += numero;
-     }else if(buff == '='){
-       if (acumulador != 0){
-         printf("suma: %i", acumulador);
-         acumulador = 0;
-       }else{
-         termine = true;
-       }
+       numTexto.clear();
+     }else if (buff == '=' && acumulador == 0){
+       termine = true;
+     }else if (buff == '=' && acumulador != 0){
+       //fwrite(&acumulador,sizeof(acumulador),1,stdout);
+       numero = std::stoi(numTexto);
+       acumulador += numero;
+       numTexto.clear();
+       printf("El resultado de la suma es: %i\n",acumulador);
+       acumulador = 0;
+     }else{
+       numTexto.push_back(buff);
+
      }
+
    }
 
   shutdown(sock_fd,SHUT_RDWR);
