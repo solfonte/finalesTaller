@@ -34,20 +34,22 @@ int main(int argc, char const *argv[]) {
   memset(&hints,0,sizeof(struct addrinfo));
   hints.ai_family = AF_INET;
   hints.ai_socktype = SOCK_STREAM;
-  hints.ai_flags = 0;
+  hints.ai_flags = AI_PASSIVE;
 
   getaddrinfo(host,puerto,&hints,&res);
-
-  int socket_fd = -1;
+  int sock_fd = -1;
   ptr = res;
 
-  while (ptr != NULL && socket_fd < 0){
-    socket_fd = socket(res->ai_family,res->ai_socktype,res->ai_protocol);
-
+  while (ptr != NULL && sock_fd < 0){
+    sock_fd = socket(res->ai_family,res->ai_socktype,res->ai_protocol);
     ptr = ptr->ai_next;
   }
 
-  connect(socket_fd,res->ai_addr,res->ai_addrlen);
+  int val = 1;
+  setsockopt(sock_fd, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val));
+  bind(sock_fd, res->ai_addr,res->ai_addrlen);
+  listen(sock_fd, 1);
+  int peer = accept(sock_fd, NULL, NULL);
   freeaddrinfo(res);
 
   char buf;
@@ -59,7 +61,7 @@ int main(int argc, char const *argv[]) {
   std::string numTexto;
 
   while(!termine && !error){
-    ssize_t resultado_recv = recv(socket_fd,&buf,sizeof(buf),0);
+    ssize_t resultado_recv = recv(peer,&buf,sizeof(buf),0);
     if (resultado_recv == -1){
       error = true;
     }else if (buf == fin){//no recibe otra letra
@@ -81,7 +83,10 @@ int main(int argc, char const *argv[]) {
     }
   }
 
-  shutdown(socket_fd,SHUT_RDWR);
-  close(socket_fd);
+  shutdown(peer,SHUT_RDWR);
+  shutdown(sock_fd,SHUT_RDWR);
+  close(peer);
+  close(sock_fd);
+  
   return 0;
 }
