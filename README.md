@@ -87,6 +87,10 @@ El código C++ se simplifica y se hace más robusto a errores de programación: 
 * ip: host
 * La función *getaddrinfo* resuelve los nombres simbolicos de *host* y *servicio* nombres a sus correspondientes IPs y puertos.
 
+Podemos probar el cliente y el server ingresando lo siguiente en la terminal: 
+nc -l -p <port> para server
+nc localhost <port> para cliente
+
 **Servidor**
 ```c
 memset(&hints, 0, sizeof(struct addrinfo));
