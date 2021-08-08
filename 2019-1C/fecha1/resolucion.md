@@ -5,14 +5,12 @@
 
 Un constructor por copia en c++ es un tipo de constructor de clase que devuelve una copia de la instancia recibida por parametro.
   a) Si este no es definido por el desarrollador, el compilador crea uno por defecto.
-  b) Para que una clase no sea copiable se puede eliminar el constructor por copia de la siguiente manera:
-    Supongamos que tenemos una clase Complejo. Eliminamos el constructor por copia asi:
+  b) Para que una clase no sea copiable se puede eliminar el constructor por copia y el operador asignacion por copia. Supongamos que tenemos una clase Complejo. Eliminamos el constructor por copia asi:
     ```
     Complejo(Complejo& c) = delete;
     Complejo &operator=(const Complejo &c) = delete;
     ```
   c) La diferencia entre estos dos constructores es que el primero devuelve una copia de una instancia recibida. Osea, copia los atributos de la clase recibida por parametros. En cambio, el constructor por movimiento lo que hace es "mover" las referencias y/o punteros que se encuentren dentro de la instancia recibida por parametro, y esta instancia recibida deja de apuntar a estas referencias y/o punteros. Cuando se liberan los recursos del objeto que movimos el nuevo objeto seguira teniendo las mismas referencias/ punteros.
-
 
   **2) Escriba una función ISO C llamada Replicar que reciba 1 cadena (S), dos índices (I1 e I2) y una cantidad (Q). La función debe retornar una copia de S salvo los caracteres que se encuentran entre los índices I1 e I2 que serán duplicados Q veces.Ej. replicar(“Hola”, 1, 2, 3) retorna “Hololola”.**  
 
@@ -23,10 +21,9 @@ resuelto
   **2. static void B(float a, float b){}**
   **3. int *(*C)[5];**
 
-  Supongo que son declaraciones/definiciones en c
-  1. Se trata de la declaracion de una funcion que retorna void, y recibe pr parametro un tipo de dato int.
-  2. Se trata de la definicion de un procedimiento que no puede ser llamado desde otro modulo, ya que se define con ```static```, y recibe por parametros dos floats.
-  3. Se trata de la declaracion de un arreglo de 5 elementos, y este arreglo contiene punteros a ints.
+  1. Se trata de la declaracion de un puntero a una funcion que retorna void, y recibe por parametro un tipo de dato int. No se le asigna espacio en memoria ya que es solo un nombre.
+  2. Se trata de la definicion de un procedimiento que no puede ser llamado desde otro modulo, ya que se define con ```static```, y recibe por parametros dos floats. Su scope es local archivo donde se define y reside en memoria en el code segment.
+  3. Se trata de la declaracion de un arreglo de 5 elementos, y este arreglo contiene 5 punteros a ints. su scope sera global y reside en memoria en el data segment.
 
   **4) Escribir un programa ISO C que reciba por argumento el nombre de un archivo de texto y lo procese sobre sí mismo (sin crear archivos intermedios ni subiendo todo su contenido a memoria). El procesamiento consiste en eliminar las líneas de 1 sola palabra.**
 
@@ -60,4 +57,5 @@ resuelto
   Un lock raii es una clase que realiza un lock de un mutex al crearse, y luego realiza el unlock de la clase al destruirse. El destructor se invoca automaticamente por ser raii, al finalizar el scope de la funcion, con lo cual no se corre el riesgo de dejar un hilo bloqueado, ya sea porque el desarrollador se olvido o porque se lanzo una excepcion, por ejemplo.
 
   **10) ¿Qué significa que una función es blocante?¿Cómo subsanaría esa limitación en términos de mantener el programa ‘vivo’ ?**  
-  Que una funcion sea bloqueante significa que se queda esperando hasta que se cumpla una tarea o hasta obtener un resultado. Para mantener el programa vivo, pueden agregar hilos para ejecutar concurrentemente aquello que deba seguir ejecutandose, mientras que otro hilo es el que se queda esperando.
+
+  Que una funcion sea bloqueante significa que se queda esperando hasta que se cumpla una tarea o hasta obtener un resultado. Para mantener el programa vivo, pueden agregarse hilos para ejecutar concurrentemente aquello que deba seguir ejecutandose, mientras que otro hilo es el que se queda esperando.
