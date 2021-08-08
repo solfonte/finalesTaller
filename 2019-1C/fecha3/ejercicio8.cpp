@@ -72,6 +72,7 @@ int main(int argc, const char* argv[]){
       numero = std::stoi(numTexto);
       acumulador += numero;
       printf("El resultado de la suma es: %i\n",acumulador);
+      numTexto.clear();
       acumulador = 0;
     }else{
       numTexto.push_back(buf);
