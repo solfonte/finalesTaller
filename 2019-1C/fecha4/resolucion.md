@@ -41,7 +41,7 @@ En archivo complejo.h
 
 **9) ¿Cómo se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.**  
 
-Lo que se hace para lograr esto es hacer una clase protegida, donde se encapsula el recurso compartido junto con su mutex correspondiente. Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que cuando un hilo acceda a el, si otro hilo quiere acceder no podra ya que estara lockeado. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
+Lo que se hace para lograr esto es definir una clase protegida, donde se encapsula el recurso compartido junto con su mutex correspondiente. Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que cuando un hilo acceda a el, si otro hilo quiere acceder no podra ya que estara lockeado. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
 Definimos las clase que contiene el recurso que sera protegido. Para el caso del ejemplo, es una lista protegida de enteros.
 
 ```

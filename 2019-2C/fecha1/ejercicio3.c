@@ -16,7 +16,7 @@ int main(){
   FILE* read = fopen(file,"r");
   FILE* write = fopen(file,"r+");
 
-  int bytes = 0, contador = 0;
+  int bytes = 0;
   uint16_t num,aux;
 
   fread(&num,sizeof(uint16_t),1,read);
@@ -30,7 +30,7 @@ int main(){
     }
     fread(&num,sizeof(uint16_t),1,read);
   }
-  ftruncate(fileno(write),bytes);
+
   fclose(write);
   fclose(read);
   return 0;

@@ -16,6 +16,8 @@ No considere errores.
 #include <netdb.h>
 #include <string.h>
 
+//esta mal. Resuelto parecido en otra fecha de 2020
+
 int main(int argc, const char* argv[]){
   //no se si es cliente o servidor, programo la parte de procesar los paquetes
 

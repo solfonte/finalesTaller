@@ -1,23 +1,3 @@
-
-#ifndef _COMPLEJO_H_
-#define _COMPLEJO_H_
-
-class Complejo{
-  private:
-    int re;
-    int im;
-  public:
-    Complejo(const int& re,const int& im): re(re),im(im){}
-    bool operator==(const Complejo& complejo);
-    operator float() const;
-    bool esImaginarioPuro() const;
-    Complejo obtenerConjugado() const;
-    float obtenerArgumento() const;
-    Complejo& operator=(const Complejo& otroComplejo);
-};
-
-#endif
-
 #ifndef _COMPLEJO_H_
 #define _COMPLEJO_H_
 
@@ -42,4 +22,5 @@ float complejo_obtenerModulo(Complejo_t* complejo);
 
 //la funcion devuelve la suma de dos complejos
 complejo_t complejo_sumar(complejo_t* unComplejo, complejo_t* otroComplejo);
+
 #endif

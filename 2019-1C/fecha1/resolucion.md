@@ -5,7 +5,7 @@
 
 Un constructor por copia en c++ es un tipo de constructor de clase que devuelve una copia de la instancia recibida por parametro.
   a) Si este no es definido por el desarrollador, el compilador crea uno por defecto.
-  b) Para que una clase no sea copiable se puede eliminar el constructor por copia y el operador asignacion por copia. Supongamos que tenemos una clase Complejo. Eliminamos el constructor por copia asi:
+  b) Para que una clase no sea copiable se puede eliminar el constructor por copia y el operador asignacion por copia. Supongamos que tenemos una clase Complejo. Eliminamos el constructor por copia asi, junto con su operador asignacion por copia:
     ```
     Complejo(Complejo& c) = delete;
     Complejo &operator=(const Complejo &c) = delete;

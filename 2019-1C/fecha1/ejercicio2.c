@@ -9,8 +9,8 @@ entre los índices I1 e I2 que serán duplicados Q veces.Ej. replicar(“Hola”
 
 char* Replicar (char* cadena,int i1,int i2,int q){
   int tamCadena = strlen(cadena);
-  int tamanioFinal = tamCadena + (i2 - i1) * q;
-  char* aux = malloc(tamanioFinal * 4);
+  int tamanioFinal = tamCadena + (i2 - i1) * q + 1;
+  char* aux = malloc(tamanioFinal * sizeof(char) + 1);
   int i = 0;
 
   //copio la cadena entre 0 e i1;

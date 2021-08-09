@@ -9,8 +9,7 @@ asumo que la clase T tiene implementado el operador ==
 //de x
 std::list<T> SoloMultiplos(std::list<T> a,T x){
   std::list<T> aux;
-  std::list<T>::iterator it;
-  for (it = a.begin(); it != a.end(); ++it){
+  for (auto it = a.begin(); it != a.end(); ++it){
     if (*it % x == 0){
       aux.push_back(*it);
     }

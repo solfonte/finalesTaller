@@ -15,10 +15,13 @@ int main(int argc, char const *argv[]) {
   }
   const char* cadenaA = argv[1];
   const char* cadenaB = argv[2];
+
   ssize_t largoCadenaA = strlen(cadenaA);
   ssize_t largoCadenaB = strlen(cadenaB);
-  char* final = malloc(4 * strlen(cadenaA));
+
+  char* final = malloc(4 * sizeof(char) * strlen(cadenaA));
   memset(final,0,4*strlen(cadenaA));
+  
   char* palabra = strstr(cadenaA, cadenaB);
   const char* aux = cadenaA;
   int i = 0;

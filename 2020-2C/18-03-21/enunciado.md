@@ -61,9 +61,9 @@ return c+(float) d;
 ```
 
 (a) es la declaracion de un puntero a un arreglo de 25 elementos de tipo int. Como esta declarado con la palabra extern, esto indica que es una variable definida en otro modulo. No se asigna memoria para esta declaracion, es un nombre y se inicializa en el modulo donde se definio.   
-(b) es la definicion de una funcion que no recibe parametros. Reside en el code segment y tiene un scope global.
-(c) es la declaracion de una variable de tipo float. Como esta declarada con la palabra static, tiene un scope local al modulo donde se la declara y reside en el data segment. Se inicializa una vez al iniciarse la ejecucion del programa y se inicializa en cero ya que se inicializan con este valor las variables estaticas que no se les asigno un valor al compilarse el programa.  
-(d) es la definicion de una variable de tipo char. Reside en el stack y tiene un scope local a esta funcion. Se inicializa al ejecutarse la linea donde se la define ya que se le asigno un valor con =.  
+(b) es la definicion de una funcion que no recibe parametros. Reside en el code segment y tiene un scope global.  
+(c) es la declaracion de una variable de tipo float. Como esta declarada con la palabra static, tiene un scope local a la funcion b y reside en el data segment. Se inicializa una vez al iniciarse la ejecucion del programa y se inicializa en cero ya que se inicializan con este valor las variables estaticas que no se les asigno un valor al compilarse el programa. Mantiene su valor entre ejecuciones de dicha funcion.    
+(d) es la definicion de una variable de tipo char. Reside en el stack y tiene un scope local a esta funcion. Se inicializa al ejecutarse la linea donde se la define.  
 
 **7) Escriba una rutina que dibuje un rombo verde que ocupe toda la ventana.**
 
