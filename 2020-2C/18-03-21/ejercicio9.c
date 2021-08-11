@@ -40,6 +40,7 @@ void procesarArchivo(const char* path){
     int letras = 0, vocales = 0;
     while (aux != ' ' && aux != '\n' && !feof(read)){
       letras += fwrite(&aux,sizeof(char),1,write);
+      bytesTot++;
       if (aux == 'a' || aux == 'e' || aux == 'i' || aux == 'o' || aux == 'u'){
         vocales++;
       }
@@ -48,14 +49,14 @@ void procesarArchivo(const char* path){
       }
       fread(&aux,sizeof(char),1,read);
     }
-    fwrite(&aux,sizeof(char),1,write);
+    bytesTot += fwrite(&aux,sizeof(char),1,write);
 
     if (vocales >= 2){
       int i = 0;
       fseek(read,-(letras + 1),SEEK_CUR);//el + 1 va por que escribi un espacio
       while (i < letras){
         fread(&aux,sizeof(char),1,read);
-        fwrite(&aux,sizeof(char),1,write);
+        bytesTot += fwrite(&aux,sizeof(char),1,write);
         i++;
       }
     }
