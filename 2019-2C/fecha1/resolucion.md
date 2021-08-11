@@ -42,7 +42,6 @@ hecho en un final de 1C
 ```
 std::list<T> Sacar(std::list<T> a,std::list<T> b);
 ```
-
 resuelto en la segunda fecha 2C.
 
 **10) Escriba un programa que reciba por línea de comandos un Puerto y una IP. El programa debe establecer una unica conexión, quedar en escucha e imprimir en stdout todo lo recibido. Al recibir el texto ‘FINAL’ debe finalizar el programa sin imprimir dicho texto.**

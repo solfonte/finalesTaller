@@ -43,6 +43,7 @@ int main(int argc,const char* argv[]){
    int acumulador = 0;
    int numero;
    std::string numTexto;
+   char enter = '\n';
 
    while (!termine){
      recv(sock_fd,&buff,sizeof(buff),0);
@@ -53,7 +54,6 @@ int main(int argc,const char* argv[]){
      }else if (buff == '=' && acumulador == 0){
        termine = true;
      }else if (buff == '=' && acumulador != 0){
-       //fwrite(&acumulador,sizeof(acumulador),1,stdout);
        numero = std::stoi(numTexto);
        acumulador += numero;
        numTexto.clear();
@@ -61,9 +61,7 @@ int main(int argc,const char* argv[]){
        acumulador = 0;
      }else{
        numTexto.push_back(buff);
-
      }
-
    }
 
   shutdown(sock_fd,SHUT_RDWR);

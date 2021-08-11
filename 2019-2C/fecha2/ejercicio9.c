@@ -21,7 +21,7 @@ void procesarArchivo(FILE* read,FILE* write){
   char numeroTexto[1000];
   cantLeido = fread(&num,sizeof(uint16_t),1,read);
   while (!feof(read)){
-    aux = htons(num);
+    aux = ntohs(num);
       if (aux % 3 != 0){
        fwrite(&num,sizeof(uint16_t),1,write);
        bytes += sizeof(uint16_t);

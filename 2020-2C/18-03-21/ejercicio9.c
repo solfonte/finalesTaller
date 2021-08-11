@@ -1,7 +1,12 @@
+/*9) Escriba una función ISO C que permita
+procesar sobre sí mismo (sin generar archivos
+  intermedios ni cargar el archivo completo a memoria) un archivo
+  texto con palabras separadas por espacios. El procesamiento consiste
+en duplicar las palabras que tengan al menos de 2 vocales.**
+*/
 
 #include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
+#include <unistd.h> //para ftruncate
 
 //funcion pedida
 void procesarArchivo(const char* path){
@@ -47,7 +52,7 @@ void procesarArchivo(const char* path){
 
     if (vocales >= 2){
       int i = 0;
-      fseek(read,-(letras + 1),SEEK_CUR);
+      fseek(read,-(letras + 1),SEEK_CUR);//el + 1 va por que escribi un espacio
       while (i < letras){
         fread(&aux,sizeof(char),1,read);
         fwrite(&aux,sizeof(char),1,write);

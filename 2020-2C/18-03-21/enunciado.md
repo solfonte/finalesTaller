@@ -2,7 +2,7 @@
 **donde [CHAR_LIM] puede ser cualquier caracter ASCII**
 **Al completar la recepción del paquete deberá imprimir el caracter con más apariciones del mismo (sin considerar [CHAR_LIM]). Al recibir un paquete vacío ([CHAR_LIM][CHAR_LIM]) debe cerrarse ordenadamente. No considere errores.**
 
-resuelto en ejercicio1.cpp
+resuelto en ejercicio1.cpp (mal)
 
 **2) ¿Qué función se utiliza para lanzar hilos?¿Qué parámetros tiene y para qué sirven? Ejemplifique.**
 
@@ -16,6 +16,7 @@ Al lanzar el thread, lo hacemos de la siguiente manera por ejemplo:
 ```c
 std::thread(f,1);
 ```
+Al finalizar su ejecucion debe ejecutarse el ```join()``` para que pueda sincronizarse su ejecucion con la ejecucion de la funcion que lo lanzo.  
 
 **3) ¿Qué finalidad tiene la palabra virtual antepuesta a un método? Ejemplifique.**
 
@@ -52,11 +53,10 @@ class Derivada: public Base {
 
 ```c
 extern int *a[25];
-int b()
-{
-static float c;
-char d=70;
-return c+(float) d;
+int b(){
+	static float c;
+	char d=70;
+	return c+(float) d;
 }
 ```
 

@@ -41,8 +41,9 @@ int main(){
   rewind(write);
   fseek(read,-elementos * sizeof(uint16_t),SEEK_END);
   fread(&num,sizeof(uint16_t),1,read);
+  
   while (!feof(read)){
-    aux = htons(num);
+    aux = ntohs(num);
     fwrite(&num,sizeof(uint16_t),1,write);
     bytes += sizeof(uint16_t);
     if (aux % 3 == 0){

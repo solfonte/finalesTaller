@@ -15,7 +15,7 @@ resuelto parecido en final fecha 1 2019 2C. Cambia:
 
 **4) ¿Qué es un Deadlock? Ejemplifique.**
 
-Un deadlock es un lock que fue realizado por un hilo que nunca puede ser liberado. Por ejemplo:
+Un deadlock es el bloqueo permanente de un conjunto de procesos o hilos. Ocurre cuando un lock que fue realizado por un hilo, nunca puede ser liberado ya que el hilo que realizo el lock no realizo el correspondiente unlock. Por ejemplo:
 
 ```c
 class Acumulador{

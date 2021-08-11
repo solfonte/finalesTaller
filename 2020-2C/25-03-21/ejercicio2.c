@@ -8,12 +8,10 @@ Escriba una rutina que dibuje un rombo azul del tamaño de la pantalla.
 
 #define WIDTH 640
 #define HEIGHT 480
-#define N 7
 
 int main(){
   SDL_Window* window = SDL_CreateWindow("SDL2 GFX", 100, 100, WIDTH, HEIGHT, SDL_WINDOW_OPENGL);
-  SDL_Renderer* renderer = SDL_CreateRenderer(
-  window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+  SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
   SDL_Event e;
   int quit = 0;
@@ -21,7 +19,7 @@ int main(){
   const short rhombus_x [] = {WIDTH / 2, WIDTH, WIDTH / 2, 0};
   const short rhombus_y [] = {0, HEIGHT / 2, HEIGHT, HEIGHT / 2};
 
-  const int rhombus_n_points = sizeof(rhombus_x) / sizeof(rhombus_x[0]);
+  const int rhombus_n_points = 4;
 
   while (!quit){
     if (SDL_PollEvent(&e)){
