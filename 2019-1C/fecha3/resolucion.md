@@ -10,7 +10,7 @@ resuelto en numero.h
 Es la sobrecarga del operador(). Se usa para definir objetos que pueden ser llamados como funciones. La ventaja de los functors es que permiten que la clase reciba los argumentos una vez, al momento de construirse por ejemplo, y que la clase se los guarde como atributos.
 
 Ejemplo:
-```
+```c
 class Impresor{
   public:
     void operator()(int value){
@@ -31,7 +31,7 @@ int main(){
 resuelto.  
 
 **4) Explique qué es (a), (b), (c) y (d), haciendo referencia a su valor y momento de inicialización, su comportamiento y el area de memoria donde residen:**  
-```
+```c
 static int a;
 int b()
 {

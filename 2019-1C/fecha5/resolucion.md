@@ -37,7 +37,7 @@ resuelto en la fecha 2
 
 **8) ¿Qué es el polimorfismo? Ejemplifique mediante código.**  
 
-Es una propiedad (en la programacion orientada a objetos) por la cual la misma llamada a función tiene distintos comportamientos dependiendo del tipo del objeto. La unica condicion es que los distintos objetos entiendan el mensaje que se les envia.  
+Es una propiedad (en la programacion orientada a objetos) por la cual una misma llamada a función tiene distintos comportamientos dependiendo del tipo del objeto. La unica condicion es que los distintos objetos entiendan el mensaje que se les envia.  
 Por ejemplo, si tenemos la clase Figura:
 
 ```c
@@ -56,7 +56,7 @@ class Triangulo: public Figura{
     float altura;
   public:
     float area(){
-      return base * altura;
+      return (base * altura) / 2;
     }
 }
 

@@ -35,7 +35,7 @@ int main(int argc, const char* argv[]){
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_flags = 0;
 
-  getaddrinfo(NULL,port,&hints,&res);
+  getaddrinfo(host,port,&hints,&res);
 
     int sock_fd = -1;
     ptr = res;

@@ -41,28 +41,29 @@ En archivo complejo.h
 
 **9) ¿Cómo se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.**  
 
-Lo que se hace para lograr esto es definir una clase protegida, donde se encapsula el recurso compartido junto con su mutex correspondiente. Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que cuando un hilo acceda a el, si otro hilo quiere acceder no podra ya que estara lockeado. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
-Definimos las clase que contiene el recurso que sera protegido. Para el caso del ejemplo, es una lista protegida de enteros.
+Lo que se hace para lograr esto es proteger el recurso compartido junto con una exclusion mutua (mutex). Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que si ocurriera un context switch, si otro hilo quiere acceder para modificarlo no podra ya que estara lockeado. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
+
 
 ```
-Class listaProtegida{
-  std::list<int> lista;
-  std::mutex m;
+int contador = 0;
+std::mutex m;
 
-  public:
-  void agregarSiNoFueAgregado(int x){
-    m.lock();
+void incrementarContador(){
+  m.lock();
+  contador++;
+  m.unlock();
+}
+int main(){
+  std::thread thread1(incrementarContador);
+  std::thread thread2(incrementarContador);
 
-    if (!lista.has(x)){
-      lista.add(x);
-    }
-
-    m.unlock();
-  }
+  thread1.join();
+  thread2.join();
+  return 0;
+}
 
 }
 ```
-Cuando un hilo invoca a un metodo se realiza el correspondiente lock para asegurar que no se realice un context switch que pueda agregar el elemento que se quiera agregar mediante otro hilo. Asi, nos aseguramos que si no lo encontramos en la lista es porque efectivamente no fue agregado.  
 
 **10) Indique la salida del siguiente programa:**
 **class A { A(){cout << “A()” << endl;}**       

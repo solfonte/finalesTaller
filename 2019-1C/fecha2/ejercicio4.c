@@ -40,7 +40,6 @@ void procesarArchivo(const char* path){
     potencia = 1;
     cantLeido = fread(hexa,sizeof(char),5,read);
   }
-  rewind(write);
   ftruncate(fileno(write),bytes - 1);
   fclose(write);
   fclose(read);

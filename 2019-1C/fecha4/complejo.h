@@ -5,7 +5,7 @@
 
 typedef struct Complejo{
   long real;
-  long imaginario
+  long imaginario;
 }complejo_t;
 
 //la funcion devuelve true si el complejo es imaginario puro

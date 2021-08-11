@@ -24,36 +24,28 @@ class NumerosProtegidos{
       }
     }
 
-    bool imprimirSiElProximoEsPar(){
+    bool imprimir(int modulo){
       std::lock_guard<std::mutex> lck(this->mutex);
-      if (this->proximaPosicionImprimir % 2 == 0 && this->proximaPosicionImprimir < 100){
+      if (this->proximaPosicionImprimir % 2 == modulo && this->proximaPosicionImprimir < 100){
         std::cout << " " << this->numeros[this->proximaPosicionImprimir] << " ";
         this->proximaPosicionImprimir ++;
       }
       return (proximaPosicionImprimir >= 100? true:false);
     }
 
-    bool imprimirSiElProximoEsImpar(){
-      std::lock_guard<std::mutex> lck(this->mutex);
-      if (this->proximaPosicionImprimir % 2 == 1 && (this->proximaPosicionImprimir < 100)){
-        std::cout << " " << this->numeros[this->proximaPosicionImprimir] << " ";
-        this->proximaPosicionImprimir ++;
-      }
-      return (proximaPosicionImprimir >= 100? true:false);
-    }
 };
 
 void imprimirNumerosPares(NumerosProtegidos& numeros){
   bool termine = false;
   while (!termine){
-    termine = numeros.imprimirSiElProximoEsPar();
+    termine = numeros.imprimir(0);
   }
 }
 
 void imprimirNumerosImpares(NumerosProtegidos& numeros){
   bool termine = false;
   while (!termine){
-    termine = numeros.imprimirSiElProximoEsImpar();
+    termine = numeros.imprimir(1);
   }
 }
 

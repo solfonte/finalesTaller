@@ -54,7 +54,7 @@ resuelto
 
   **9) ¿Qué ventaja ofrece un lock raii frente al tradicional lock/unlock ?**  
 
-  Un lock raii es una clase que realiza un lock de un mutex al crearse, y luego realiza el unlock de la clase al destruirse. El destructor se invoca automaticamente por ser raii, al finalizar el scope de la funcion, con lo cual no se corre el riesgo de dejar un hilo bloqueado, ya sea porque el desarrollador se olvido o porque se lanzo una excepcion, por ejemplo.
+  Un lock raii es una clase que realiza un lock de un mutex al crearse, y luego realiza el unlock del mutex al destruirse. El destructor se invoca automaticamente por ser raii, al finalizar el scope de la funcion, con lo cual no se corre el riesgo de dejar un hilo bloqueado, ya sea porque el desarrollador se olvido o porque se lanzo una excepcion, por ejemplo.
 
   **10) ¿Qué significa que una función es blocante?¿Cómo subsanaría esa limitación en términos de mantener el programa ‘vivo’ ?**  
 

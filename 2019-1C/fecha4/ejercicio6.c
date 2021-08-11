@@ -66,7 +66,9 @@ int main(int argc,const char* argv[]){
     }
   }
 
+  shutdown(peer,SHUT_RDWR);
   shutdown(sock_fd,SHUT_RDWR);
+  close(peer);
   close(sock_fd);
 
   return 0;

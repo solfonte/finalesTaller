@@ -13,7 +13,7 @@ class Numero{
     Numero(unsigned long&& otroNumero);
     std::ostream& operator<<(std::ostream& out,const Numero& numero);
     void operator()();
-    Numero& operator =(Numero& otroNumero);
+    Numero& operator=(Numero& otroNumero);
     operator long() const;
     Numero operator(int);
     std::istream& operator>>(std::istream& in, const Numero& numero){
