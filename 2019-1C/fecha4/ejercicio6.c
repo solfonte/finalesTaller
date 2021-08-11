@@ -37,7 +37,7 @@ int main(int argc,const char* argv[]){
   ptr = res;
 
   while (ptr != NULL && sock_fd < 0){
-    sock_fd = socket(res->ai_family,res->ai_socktype,res->ai_protocol);
+    sock_fd = socket(ptr->ai_family,ptr->ai_socktype,ptr->ai_protocol);
     ptr = ptr->ai_next;
   }
 

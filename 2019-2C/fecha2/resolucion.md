@@ -39,7 +39,7 @@ Esto no es verdad ya que la memoria de cada campo del struct se aloca en direcci
 
 **8) ¿En qué consiste el patrón de diseño RAII? Ejemplifique.**   
 
-Este patron de disenio es un patron utilizado para el manejo de recursos y consiste en reservar recursos para el objeto en el constructor y liberarlos en el destructor. Luego, para liberar los objetos, se hace en el orden inverso al cual fueron instanciados. Esto nos ayuda a dejar de tener leaks. Por ejemplo:
+Este patron de diseño es un patron utilizado para el manejo de recursos y consiste en reservar recursos para el objeto en el constructor y liberarlos en el destructor. Luego, para liberar los objetos, se hace en el orden inverso al cual fueron instanciados. Esto nos ayuda a dejar de tener leaks. Por ejemplo:
 
 ```c
 Class Lista{
@@ -53,6 +53,7 @@ Class Lista{
     }
 }
 ```
+
 
 **9) Escribir un programa ISO C que procese el archivo de enteros de 2 bytes bigendian cuyo nombre es recibido como parámetro. El procesamiento consiste en eliminar los número múltiplos de 3, trabajando sobre el mismo archivo (sin archivos intermedios ni en memoria).**  
 

@@ -15,7 +15,7 @@ resuelto parecido en final fecha 1 2019 2C. Cambia:
 
 **4) ¿Qué es un Deadlock? Ejemplifique.**
 
-Un deadlock es el bloqueo permanente de un conjunto de procesos o hilos. Ocurre cuando un lock que fue realizado por un hilo, nunca puede ser liberado ya que el hilo que realizo el lock no realizo el correspondiente unlock. Por ejemplo:
+Un deadlock es el bloqueo permanente de un conjunto de procesos o hilos. Ocurre cuando un lock que fue realizado por un hilo nunca puede ser liberado ya que el hilo que realizo el lock no realizo el correspondiente unlock. Por ejemplo:  
 
 ```c
 class Acumulador{
@@ -34,9 +34,9 @@ Al llamar a la funcion acumular de acumulador, lo que ocurrira es que el hilo qu
 resuelto en ejercicio5.cpp
 
 **6) Describa con exactitud las siguientes declaraciones/definiciones globales:**
-		**- char *(*A)();**: A es la declaracion de un puntero a una funcion que no recibe parametros y devuelve un puntero a un dato de tipo char.
-		**- static int *(*C)[5];**: la declaracion de un puntero a un arreglo de punteros a int, de scope local al modulo declarado por haber sido declarado con static, y reside en el data segment.
-		**- short *B(){return NULL;}**: la definicion de una funcion B que devuelve un puntero a un short. Reside en el code segment y es de visibilidad global.
+		**- char *(*A)();**: A es la declaracion de un puntero a una funcion que no recibe parametros y devuelve un puntero a un dato de tipo char. Es solo un nombre con lo cual no se reservan recursos.  
+		**- static int *(*C)[5];**: la declaracion de un puntero a un arreglo de punteros a int, de scope local al modulo declarado por haber sido declarado con static, y reside en el data segment.  
+		**- short *B(){return NULL;}**: la definicion de una funcion B que devuelve un puntero a un short. Reside en el code segment y es de visibilidad global.  
 
 **7) Declare una clase a elección considerando:**
 		**- Atributos que son necesarios**  
@@ -45,7 +45,7 @@ resuelto en ejercicio5.cpp
 
 (resuelto parecido en fechas anteriores).
 
-**8) Implemente una función C++ denominada SoloMuliplos que reciba una lista de elementos numéricos y un elemnto numérico x. La función debe devolver una nueva lista con los elementos de la primera que sean múltiplos de x:**
+**8) Implemente una función C++ denominada SoloMuliplos que reciba una lista de elementos numéricos y un elemento numérico x. La función debe devolver una nueva lista con los elementos de la primera que sean múltiplos de x:**
 ```
 std::list<T> SoloMultiplos(std::list<T> a,T x);
 ```
@@ -53,8 +53,8 @@ resuelto en ejercicio8.cpp
 
 **9) ¿Se puede evitar que un objeto de una clase sea copiado?¿y clonado?. En caso afirmativo explique cómo puede hacerse. En caso negativo explique por qué no se puede.**
 
-Se puede evitar que un objeto sea copiado. Lo que debemos hacer es eliminar su constructor copia y el operador asignacion por copia. Ademas podemos evitar que sea clonado, definiendo su constructor por movimiento. Asi, si se intentara clonar, en lugar de haber dos objetos siendo "duenios" de los mismos recursos, los recursos de uno se transfieren al otro.  
+Se puede evitar que un objeto sea copiado. Lo que debemos hacer es eliminar su constructor copia y el operador asignacion por copia. Ademas podemos evitar que sea clonado, definiendo su constructor por movimiento. Asi, si se intentara clonar, en lugar de haber dos objetos siendo "duenios" de los mismos recursos, los recursos de uno se transfieren al otro.   
 
 **10) ¿Qué es un thread?¿Qué recursos comparte con otros threads del mismo proceso?¿Cuales son exclusivos (no compartidos)?**  
 
-Un thread es una ejecucion de un bloque de codigo. Cuando tenemos multiples hilos, estos bloques de codigo se ejecutan de manera concurrente. Los recursos que se comparten por los hilos de un mismo programa son el code segment, el data segment, el heap y los file descriptors. Los exclusivos son los registros y el stack.  
+Un thread es una ejecucion de un bloque de codigo. Cuando tenemos multiples hilos, estos bloques de codigo se ejecutan de manera concurrente. Los recursos que se comparten por los hilos de un mismo programa son el code segment, el data segment, el heap y los file descriptors. Los exclusivos son los registros y el stack.   

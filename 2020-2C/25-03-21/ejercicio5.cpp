@@ -33,7 +33,6 @@ int main(int argc,const char* argv[]){
    hints.ai_flags = 0;
 
    getaddrinfo(host,port,&hints,&res);
-   ptr = res;
    int sock_fd = socket(ptr->ai_family,ptr->ai_socktype,ptr->ai_protocol);
    connect(sock_fd,ptr->ai_addr,ptr->ai_addrlen);
    freeaddrinfo(res);

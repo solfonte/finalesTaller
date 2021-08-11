@@ -6,7 +6,7 @@ resuelto en ejercicio1.cpp (mal)
 
 **2) ¿Qué función se utiliza para lanzar hilos?¿Qué parámetros tiene y para qué sirven? Ejemplifique.**
 
-En c++11 podemos ejecutar una funcion en su propio hilo con std::thread. Los parametros que deben pasarse son la funcion y los parametros que recibe esa funcion. Por ejemplo, tenemos la  siguiente funcion:
+En c++11 podemos ejecutar una funcion en su propio hilo con std::thread. Los parametros que deben pasarse son la funcion y los parametros que recibe esa funcion. Por ejemplo, tenemos la siguiente funcion:  
 
 ```c
 void f(int numero);
@@ -20,7 +20,7 @@ Al finalizar su ejecucion debe ejecutarse el ```join()``` para que pueda sincron
 
 **3) ¿Qué finalidad tiene la palabra virtual antepuesta a un método? Ejemplifique.**
 
-La finalidad es la declaracion de funciones que pueden ser redefinidas por clases derivadas a una clase. Asi, podemos aplicar polimorfismo. Por ejemplo:
+La finalidad es la declaracion de funciones que pueden ser redefinidas por clases derivadas a una clase. Asi, podemos aplicar polimorfismo. Por ejemplo:  
 ```c
 class Base {
 	public:
@@ -60,7 +60,7 @@ int b(){
 }
 ```
 
-(a) es la declaracion de un puntero a un arreglo de 25 elementos de tipo int. Como esta declarado con la palabra extern, esto indica que es una variable definida en otro modulo. No se asigna memoria para esta declaracion, es un nombre y se inicializa en el modulo donde se definio.   
+(a) es la declaracion de un arreglo de 25 punteros a int. Como esta declarado con la palabra extern, esto indica que es una variable definida en otro modulo. No se asigna memoria para esta declaracion, es un nombre y se inicializa en el modulo donde se definio.   
 (b) es la definicion de una funcion que no recibe parametros. Reside en el code segment y tiene un scope global.  
 (c) es la declaracion de una variable de tipo float. Como esta declarada con la palabra static, tiene un scope local a la funcion b y reside en el data segment. Se inicializa una vez al iniciarse la ejecucion del programa y se inicializa en cero ya que se inicializan con este valor las variables estaticas que no se les asigno un valor al compilarse el programa. Mantiene su valor entre ejecuciones de dicha funcion.    
 (d) es la definicion de una variable de tipo char. Reside en el stack y tiene un scope local a esta funcion. Se inicializa al ejecutarse la linea donde se la define.  

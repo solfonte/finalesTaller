@@ -41,13 +41,13 @@ int main(int argc, char const *argv[]) {
   ptr = res;
 
   while (ptr != NULL && sock_fd < 0){
-    sock_fd = socket(res->ai_family,res->ai_socktype,res->ai_protocol);
+    sock_fd = socket(ptr->ai_family,ptr->ai_socktype,ptr->ai_protocol);
     ptr = ptr->ai_next;
   }
 
   int val = 1;
   setsockopt(sock_fd, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val));
-  bind(sock_fd, res->ai_addr,res->ai_addrlen);
+  bind(sock_fd, ptr->ai_addr,ptr->ai_addrlen);
   listen(sock_fd, 1);
   int peer = accept(sock_fd, NULL, NULL);
   freeaddrinfo(res);
@@ -87,6 +87,6 @@ int main(int argc, char const *argv[]) {
   shutdown(sock_fd,SHUT_RDWR);
   close(peer);
   close(sock_fd);
-  
+
   return 0;
 }

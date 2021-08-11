@@ -7,7 +7,7 @@ resuelto en numero.h
 
 **2) ¿Qué es un functor? ¿Qué ventaja ofrece frente a una función convencional? Ejemplifique.**  
 
-Es la sobrecarga del operador(). Se usa para definir objetos que pueden ser llamados como funciones. La ventaja de los functors es que permiten que la clase reciba los argumentos una vez, al momento de construirse por ejemplo, y que la clase se los guarde como atributos.
+Es la sobrecarga del operador (). Se usa para definir objetos que pueden ser llamados como funciones. La ventaja de los functors es que permiten que la clase reciba los argumentos una vez, al momento de construirse por ejemplo, y que la clase se los guarde como atributos.
 
 Ejemplo:
 ```c
@@ -33,8 +33,7 @@ resuelto.
 **4) Explique qué es (a), (b), (c) y (d), haciendo referencia a su valor y momento de inicialización, su comportamiento y el area de memoria donde residen:**  
 ```c
 static int a;
-int b()
-{
+int b(){
 static int c; char d=65;
 return c+(int) d;
 }
@@ -48,7 +47,7 @@ resuelto en ejercicio5.c
 
 **6) ¿Por qué las librerías que usan Templates se publican con todo el código fuente y no como un .h y .o/.obj?.**  
 
-Porque el código template es procesado por el compilador y depende de tipo de dato que se use en el momento de compilar. Por eso, podemos especificar el tipo de dato o dejar que el compilador lo deduzca, pero dicho codigo debe compilarse al momento de definir el tipo.  
+Los templates son plantillas para generar clases. Se publican con todo el codigo porque el código template es procesado por el compilador y depende de tipo de dato que se use en el momento de compilar. Por eso, podemos especificar el tipo de dato o dejar que el compilador lo deduzca, pero dicho codigo debe compilarse al momento de definir el tipo.  
 
 **7) ¿Qué características debe tener un compilador C para se considerado “portable”?**  
 

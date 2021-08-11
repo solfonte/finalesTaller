@@ -32,9 +32,28 @@ resuelto en fecha del 1C.
 resuelto en fecha del 1C.
 
 **8) Indique la salida del siguiente programa:**
-**class A{ A(){cout << “A()” << endl;}       ~A(){ cout << “~A()” << endl;} }**  
-**class B : public A { B(){cout << “B()” << endl;}     ~B(){ cout << “~B()” << endl;} }**      
-**int main () { B b; return 0;}**
+```
+class A{
+  A(){
+    cout << “A()” << endl;
+  }       
+  ~A(){
+    cout << “~A()” << endl;
+  }
+}  
+class B : public A {
+   B(){
+     cout << “B()” << endl;
+   }     
+  ~B(){
+    cout << “~B()” << endl;
+  }
+}      
+int main () {
+  B b;
+  return 0;
+}
+```
 
 hecho en un final de 1C
 

@@ -21,6 +21,8 @@ resuelto en fecha 1 2C 2019.
 
 **5) Escriba el .H de una biblioteca de funciones ISO C para cadenas de caracteres. Incluya, al menos, 4 funciones.**
 
+resuelto en fecha 1 de 2019-2C
+
 **6) ¿Qué es una macro de C? Detalle las buenas prácticas para su definición. Ejemplifique**
 
 (respondida en finales anteriores).
@@ -49,7 +51,9 @@ A()
 ```
 
 **9) Implemente una función C++ denominada Sacar que reciba dos listas de elementos y devuelva una nueva lista con los elementos de la primera que no están en la segunda:**
-```std::list<T> Sacar(std::list<T> a,std::list<T> b);
+
+```
+std::list<T> Sacar(std::list<T> a,std::list<T> b);
 ```
 (resuelto en otro final).
 
