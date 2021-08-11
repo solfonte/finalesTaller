@@ -11,6 +11,7 @@ ejercicio.c
 resuelto parecido en final fecha 1 2019 2C. Cambia:  
 * en lugar de usar ```uint16_t``` se usa ```uint32_t```.
 * en lugar de chequear ``` num % 3 == 0```, se debe verificar ```num % 2 == 1```.
+* cuando se expande el archivo, se deberia copiar 2 veces en lugar de una vez.
 
 **4) ¿Qué es un Deadlock? Ejemplifique.**
 
