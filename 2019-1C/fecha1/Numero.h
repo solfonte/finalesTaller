@@ -13,7 +13,7 @@ class Numero{
     Numero operator-(const Numero& numero,const Numero& otroNumero) const;
     bool operator==(const Numero& otroNumero) const;
     std::istream& operator>>(std::istream& in,Numero& otroNumero);
-    std::ostream& operator<<(std::ostream& out,Numero& otroNumero);
+    std::ostream& operator<<(std::ostream& out,const Numero& otroNumero);
     Numero(Numero&& otroNumero);
     operator float() const;
 };

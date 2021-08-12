@@ -11,16 +11,28 @@ Es la sobrecarga del operador (). Se usa para definir objetos que pueden ser lla
 
 Ejemplo:
 ```c
-class Impresor{
+class Sumador{
+  std::list<int> n;
   public:
-    void operator()(int value){
-      std::cout << "valor: " << value << std::endl;
+    Sumador(std::list<int>& numeros): numeros(numeros);
+    void operator()(){
+      int acumulador = 0;
+      for (auto it = n.begin(); it != n.end(); ++it){
+        acumulador += *it;
+      }
+      std::cout << "La suma da: " << acumulador << std::endl;
     }
 };
 
 int main(){
-  Impresor impresor;
-  impresor(1);
+  std::list<int> numeros;
+  numeros.push_back(1);
+  numeros.push_back(56);
+  numeros.push_back(8);
+  numeros.push_back(23);
+
+  Sumador s(numeros);
+  s();
   return 0;
 }
 ```
@@ -51,7 +63,7 @@ Los templates son plantillas para generar clases. Se publican con todo el codigo
 
 **7) ¿Qué características debe tener un compilador C para se considerado “portable”?**  
 
-Un compilador C portable es aquel que soporta la sintaxis (y semantica) del lenguage C dado un estandar y que no agrega ninguna sintaxis adicional por fuera del estandar (de tal manera que el mismo codigo podria ser compilado por otro compilador). Esto incluye tambien el proceso de compilacion estandar (precompilacion, compilacion, linkeo). Ademas el compilador debe ofrecer una implementacion a la libreria estandar de C respetando el estandar de C mencionado anteriormente tal que un programa compilado en un entorno pueda ser ejecutado en otro que tenga una libreria C compatible.
+Un compilador C portable es aquel que soporta la sintaxis (y semantica) del lenguaje C dado un estandar y que no agrega ninguna sintaxis adicional por fuera del estandar (de tal manera que el mismo codigo podria ser compilado por otro compilador). Esto incluye tambien el proceso de compilacion estandar (precompilacion, compilacion, linkeo). Ademas el compilador debe ofrecer una implementacion a la libreria estandar de C respetando el estandar de C mencionado anteriormente tal que un programa compilado en un entorno pueda ser ejecutado en otro que tenga una libreria C compatible.
 
 **8) Escriba un programa (desde la inicialización hasta la liberación de los recursos) que reciba paquetes de la forma [nnn+nn+....+nnnn] (numeros separados por +, encerrados entre corchetes) e imprima el resultado de la suma de cada paquete por pantalla. Al recibir un paquete vacío (“[]”) debe cerrarse ordenadamente. No considere errores.**  
 

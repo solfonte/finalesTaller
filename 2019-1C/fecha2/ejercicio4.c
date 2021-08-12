@@ -24,7 +24,7 @@ void procesarArchivo(const char* path){
 
   cantLeido = fread(hexa,sizeof(char),5,read);
   while(!feof(read)){
-    char numeroTexto[10];
+    char numeroTexto[100];
     for (int i = cantLeido - 2; i >= 0; i--){
       int caracter = ((int)(hexa[i]) - '0');
       if (caracter > 10) caracter -= 7;

@@ -17,8 +17,7 @@ void procesarArchivo(FILE* read,FILE* write){
   uint16_t num;
   uint16_t aux;
 
-  int bytes = 0,cantLeido = 0;
-  char numeroTexto[1000];
+  int bytes = 0;
   cantLeido = fread(&num,sizeof(uint16_t),1,read);
   while (!feof(read)){
     aux = ntohs(num);

@@ -3,7 +3,7 @@
   **b) Explique al menos una estrategia para evitar que una clase particular sea copiable;**  
   **c) Indique qué diferencia existe entre un constructor de copia y uno move.**      
 
-Un constructor por copia en c++ es un tipo de constructor de clase que devuelve una copia de la instancia recibida por parametro.
+Un constructor por copia en c++ es un tipo de constructor de clase que devuelve una copia de la instancia recibida por parametro.  
   a) Si este no es definido por el desarrollador, el compilador crea uno por defecto.  
   b) Para que una clase no sea copiable se puede eliminar el constructor por copia y el operador asignacion por copia. Supongamos que tenemos una clase Complejo. Eliminamos el constructor por copia asi, junto con su operador asignacion por copia:  
     ```
@@ -54,7 +54,7 @@ resuelto
 
   **9) ¿Qué ventaja ofrece un lock raii frente al tradicional lock/unlock ?**  
 
-  Un lock raii es una clase que realiza un lock de un mutex al crearse, y luego realiza el unlock del mutex al destruirse. El destructor se invoca automaticamente por ser raii al finalizar el scope de la funcion, con lo cual no se corre el riesgo de dejar un hilo bloqueado (deadlock), ya sea porque el desarrollador se olvido de realizar el unlock o porque se lanzo una excepcion y no se ejecuto el unlock, por ejemplo.
+  Un lock raii es una clase que realiza un lock de un mutex al crearse (lo recibe por parametro al construirse), y luego realiza el unlock del mutex al destruirse. El destructor se invoca automaticamente por ser raii al finalizar el scope de la funcion, con lo cual no se corre el riesgo de dejar un hilo bloqueado (deadlock), ya sea porque el desarrollador se olvido de realizar el unlock o porque se lanzo una excepcion y no se ejecuto el unlock, por ejemplo.
 
   **10) ¿Qué significa que una función es blocante?¿Cómo subsanaría esa limitación en términos de mantener el programa ‘vivo’ ?**  
 

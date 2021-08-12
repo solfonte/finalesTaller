@@ -4,7 +4,6 @@ Escriba una rutina (para ambiente gráfico Windows o Linux) que dibuje un trián
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
-#include <stdio.h>
 
 #define WIDTH 640
 #define HEIGHT 480

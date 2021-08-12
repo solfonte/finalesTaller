@@ -10,7 +10,7 @@ class Numero{
     Numero operator+(Numero& otroNumero);
     Numero operator++(int);//post incremento
     Numero& operator--();//pre incremento
-    std::ostream& operator>>(std::ostream& out,Numero& numero);
+    std::ostream& operator>>(std::ostream& out,const Numero& numero);
     std::istream& operator<<(std::istream& in,Numero& numero);
     operator long() const;
 };

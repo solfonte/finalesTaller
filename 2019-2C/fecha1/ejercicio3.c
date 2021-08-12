@@ -7,8 +7,6 @@ sobre sí mismo, duplicando los enteros de 2 bytes múltiplos de 3.
 
 #include <stdio.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <stdint.h>
 #include <arpa/inet.h>
 
 int main(){
@@ -41,7 +39,7 @@ int main(){
   rewind(write);
   fseek(read,-elementos * sizeof(uint16_t),SEEK_END);
   fread(&num,sizeof(uint16_t),1,read);
-  
+
   while (!feof(read)){
     aux = ntohs(num);
     fwrite(&num,sizeof(uint16_t),1,write);

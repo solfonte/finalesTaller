@@ -14,7 +14,7 @@ class Telefono{
     Telefono(Telefono&& otroTelefono);
     Telefono(Telefono& telefono);
     std::ostream& operator<<(std::ostream& out,const Telefono& telefono);
-    std::istream& operator>>(std::istream& in,const Telefono& telefono){
+    std::istream& operator>>(std::istream& in,Telefono& telefono){
       in >> area >> numero;
       return in;
     }

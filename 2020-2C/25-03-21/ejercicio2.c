@@ -4,7 +4,6 @@ Escriba una rutina que dibuje un rombo azul del tamaño de la pantalla.
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
-#include <stdio.h>
 
 #define WIDTH 640
 #define HEIGHT 480

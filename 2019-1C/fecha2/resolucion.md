@@ -8,7 +8,7 @@ resuelto en Numero.h
 
 **3) Explique qué son los métodos virtuales y para qué sirven. De un breve ejemplo donde su uso sea imprescindible.**  
 
-Los metodos virtuales son los metodos declarados dentro de una clase base y se redefinen en una clase derivada. Sirven para poder aplicar polimorfismo. Su uso imprescindible es, por ejemplo, en los casos en los que tenemos clases abstractas (o el ejemplo de la clase figura, que las distintas figuras tienen distintos comportamientos).  
+Los metodos virtuales son los metodos definidos dentro de una clase base y se redefinen en una clase derivada. Sirven para poder aplicar polimorfismo. Su uso imprescindible es, por ejemplo, en los casos en los que tenemos clases abstractas (o el ejemplo de la clase figura, que las distintas figuras tienen distintos comportamientos).  
 
 **4) Escribir un programa C que procese el archivo “numeros.txt” sobre sí mismo (sin crear archivos intermedios y sin subir el archivo a memoria). El procesamiento consiste en leer grupos de 4 caracteres hexadecimales y reemplazarlos por los correspondientes dígitos decimales (que representen el mismo número leído pero en decimal).**
 
