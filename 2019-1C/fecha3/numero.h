@@ -7,7 +7,7 @@ class Numero{
   private:
     long int numero;
   public:
-    Numero operator+(Numero& otroNumero);
+    Numero operator+(Numero& numero,Numero& otroNumero);
     Numero operator++(int);//post incremento
     Numero& operator--();//pre incremento
     std::ostream& operator>>(std::ostream& out,const Numero& numero);

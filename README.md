@@ -28,8 +28,7 @@ Resueltos de finales del curso Veiga.
 * Segmentos de memoria:
 **Code segment**: de solo lectura y ejecutable, a donde va el código y las constantes.
 **Data segment**: variables creadas al inicio del programa y son válidas hasta que este termina; pueden ser de acceso global o local.
-**Stack**: variables creadas al inicio de una llamada a una función y destruidas automáticamente cuando esta
-llamada termina.
+**Stack**: variables creadas al inicio de una llamada a una función y destruidas automáticamente cuando esta llamada termina.
 **Heap**: variables cuya duración esta controlada por el programador (run-time).
 
 * Duración (lifetime): tiempo desde que a la variable se le reserva memoria hasta que esta es liberada. Determinado por el segmento de memoria que se usa.
@@ -58,7 +57,12 @@ void f() {
   b[0] = ’X’;
   a[0] = ’X’; // segmentation fault
   }
-```
+```  
+
+Diferencia entre una definicion y una declaracion:  
+* declaracion: informarle al compilador que algo existe pero que no reserve recursos. Despues el linker va a referenciar las cosas.  
+* definicion: definicion es declaracion pero ademas implica una reserva de recursos.  
+
 ## Compilacion
 
 https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
@@ -83,13 +87,13 @@ Al instanciarse los objetos RAII en el stack, sus constructores adquieren los re
 El código C++ se simplifica y se hace más robusto a errores de programación: RAII + Stack es uno de los conceptos claves en C++.
 
 # Sockets (TCP)
-* Servicio: port
-* ip: host
-* La función *getaddrinfo* resuelve los nombres simbolicos de *host* y *servicio* nombres a sus correspondientes IPs y puertos.
+* Servicio: port  
+* ip: host  
+* La función *getaddrinfo* resuelve los nombres simbolicos de *host* y *servicio* nombres a sus correspondientes IPs y puertos.  
 
-Podemos probar el cliente y el server ingresando lo siguiente en la terminal: 
-nc -l -p <port> para server
-nc localhost <port> para cliente
+Podemos probar el cliente y el server ingresando lo siguiente en la terminal:  
+nc -l -p <port> para server  
+nc localhost <port> para cliente  
 
 **Servidor**
 ```c
@@ -101,15 +105,14 @@ hints.ai_flags = AI_PASSIVE;
 status = getaddrinfo(0 /* ANY */, "http", &hints, &results);
 freeaddrinfo(results);
 ```
-Las funciones que realiza son:
+Las funciones que realiza son:  
 * inicializar un socket: crear un file descriptor al igual que cuando abrimos un archivo
-* bind: establece a que interface, IP y puerto se quiere asociar ese socket. La dirección usada en la función bind son el resultado de la función getaddrinfo.
-* listen: listen define cuantas conexiones en espera pueden esperar hasta ser aceptadas. No limita cuantas conexiones totales puede haber.
+* bind: establece a que interface, IP y puerto se quiere asociar ese socket. La dirección usada en la función bind son el resultado de la función getaddrinfo.  
+* listen: listen define cuantas conexiones en espera pueden esperar hasta ser aceptadas. No limita cuantas conexiones totales puede haber.  
 * accept: el servidor acepta las conexiones de alguien que quiere conectarse. Esta funcion es bloqueante. Cuando acepta una conexión, la función accept se desbloquea y retorna un nuevo socket que representa a la
-nueva conexión.
-* cerrar un socket
-
-* Ademas tiene dos sockets: aceptador y peer. El primero acepta las conexiones y el segundo es unico para comunicarse con cada cliente conectado.
+nueva conexión.  
+* cerrar un socket.  
+* Ademas tiene dos sockets: aceptador y peer. El primero acepta las conexiones y el segundo es unico para comunicarse con cada cliente conectado.  
 
 **Cliente**
 
@@ -122,15 +125,15 @@ hints.ai_flags = 0;
 status = getaddrinfo("fi.uba.ar", "http", &hints, &results);
 freeaddrinfo(results);
 ```
-Las funciones que realiza son:
-* inicializar un socket
-* connect: para conectar el socket con el servidor. Es bloqueante.
-* cerrar un socket
+Las funciones que realiza son:  
+* inicializar un socket  
+* connect: para conectar el socket con el servidor. Es bloqueante.  
+* cerrar un socket  
 
-Para cerrar una conexion, se hace *shutdown* y *close*. Tipos de shut down:
-  - envio: SHUT_WR
-  - recepción: SHUT_RD
-  - ambos: SHUT_RDWR
+Para cerrar una conexion, se hace *shutdown* y *close*. Tipos de shut down:  
+  - envio: SHUT_WR  
+  - recepción: SHUT_RD  
+  - ambos: SHUT_RDWR  
 
 # Archivos
 
@@ -143,17 +146,17 @@ Para cerrarlo:
 int fclose(FILE *stream);
 ```
 Modos de aperura de archivos:
-* "r": lectura. El archivo debe existir.
-* "w": Escritura (crea el archivos si no existe; sobreescribe uno existente).
-* "a": Append (crea el archivo si no existe. Si existe continúa al final).
-* "r+": Lectura y escritura, empieza al principio. El archivo debe existir.
-* "w+": Lectura y escritura (sobreescribe el archivo si existe).
+* "r": lectura. El archivo debe existir.  
+* "w": Escritura (crea el archivos si no existe; sobreescribe uno existente).  
+* "a": Append (crea el archivo si no existe. Si existe continúa al final).  
+* "r+": Lectura y escritura, empieza al principio. El archivo debe existir.  
+* "w+": Lectura y escritura (sobreescribe el archivo si existe).  
 * "a+": Lectura y escritura (hace append si existe el archivo).  
 Para archivos binarios:
-* "b": Para lectura escritura de archivos binarios (usar con alguno de los anteriores).
-* "t": Para lectura escritura de archivos en modo texto.
+* "b": Para lectura escritura de archivos binarios (usar con alguno de los anteriores).  
+* "t": Para lectura escritura de archivos en modo texto.  
 
-Mas funciones:
+Mas funciones:  
 ```c
 int fgetc(FILE *stream);
 int fputc(int char, FILE *stream):
@@ -179,7 +182,7 @@ En C++11 podemos ejecutar una función en su propio hilo con td::thread. Luego, 
 **Race condition**: se debe al acceso no-atómico de lecto/escritura de un recurso compartido.
 Si el recurso compartido es inmutable o solamente se accede a él para operaciones de lectura, no existe la posibilidad de tal error. Para evitar la race condition debemos hacer que los hilos se coordinen entre sí para evitar que accedan al objeto compartido a la vez.  
 Un mutex es un objeto que nos permitirá forzar la ejecución de un código de forma exclusiva por un hilo a la vez. En C++ std::mutex.  
-Para hacer un lock de un mutex podemos usar un lock raii:
+Para hacer un lock de un mutex podemos usar un lock raii:  
 ```c
 #include <utility>
 #include <mutex>

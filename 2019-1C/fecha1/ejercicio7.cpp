@@ -10,13 +10,10 @@ debe finalizar el programa ordenadamente liberando los recursos.
 ***/
 
 #include <stdio.h>
-#include <stddef.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include <string>
 #include <string.h>
 

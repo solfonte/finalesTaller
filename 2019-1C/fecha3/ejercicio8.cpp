@@ -68,7 +68,7 @@ int main(int argc, const char* argv[]){
       numTexto.clear();
     }else if (buf == ']' && aux == '['){
       termine = true;
-    }else if (buf == ']' && aux != ']'){
+    }else if (buf == ']' && aux != '['){
       numero = std::stoi(numTexto);
       acumulador += numero;
       printf("El resultado de la suma es: %i\n",acumulador);

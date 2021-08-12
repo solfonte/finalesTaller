@@ -7,53 +7,42 @@ Contemple la correcta sincronización entre hilos y la liberación de los recurs
 
 #include <iostream>
 #include <thread>
-#include <utility>
 #include <mutex>
 
-class NumerosProtegidos{
+std::mutex mutex;
+int numeros[100];
+int proximaPosicionImprimir = 0;
 
-  private:
-    std::mutex mutex;
-    int numeros[100];
-    int proximaPosicionImprimir = 0;
-  public:
-    NumerosProtegidos(){
-      // inicializo variable global unica
-      for (int i = 0; i < 100; i++){
-        this->numeros[i] = i + 1;
+bool imprimir(int modulo){
+  std::lock_guard<std::mutex> lck(mutex);
+    if (proximaPosicionImprimir % 2 == modulo && proximaPosicionImprimir < 100){
+        std::cout << " " << numeros[proximaPosicionImprimir] << " ";
+        proximaPosicionImprimir ++;
       }
-    }
+    return (proximaPosicionImprimir >= 100? true:false);
+  }
 
-    bool imprimir(int modulo){
-      std::lock_guard<std::mutex> lck(this->mutex);
-      if (this->proximaPosicionImprimir % 2 == modulo && this->proximaPosicionImprimir < 100){
-        std::cout << " " << this->numeros[this->proximaPosicionImprimir] << " ";
-        this->proximaPosicionImprimir ++;
-      }
-      return (proximaPosicionImprimir >= 100? true:false);
-    }
-
-};
-
-void imprimirNumerosPares(NumerosProtegidos& numeros){
+void imprimirNumerosPares(){
   bool termine = false;
   while (!termine){
-    termine = numeros.imprimir(0);
+    termine = imprimir(0);
   }
 }
 
-void imprimirNumerosImpares(NumerosProtegidos& numeros){
+void imprimirNumerosImpares(){
   bool termine = false;
   while (!termine){
-    termine = numeros.imprimir(1);
+    termine = imprimir(1);
   }
 }
 
 int main(){
 
-  NumerosProtegidos numeros;
-  std::thread threadPar(imprimirNumerosPares,std::ref(numeros));
-  std::thread threadImpar(imprimirNumerosImpares,std::ref(numeros));
+  for (int i = 0; i < 100; i++){
+    numeros[i] = i + 1;
+  }
+  std::thread threadPar(imprimirNumerosPares);
+  std::thread threadImpar(imprimirNumerosImpares);
 
   threadPar.join();
   threadImpar.join();

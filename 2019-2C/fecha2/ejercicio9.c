@@ -5,7 +5,6 @@
  sobre el mismo archivo (sin archivos intermedios ni en memoria).**
 */
 
-//no anda bien
 
 #include <stdio.h>
 #include <stdint.h>
@@ -18,14 +17,14 @@ void procesarArchivo(FILE* read,FILE* write){
   uint16_t aux;
 
   int bytes = 0;
-  cantLeido = fread(&num,sizeof(uint16_t),1,read);
+  fread(&num,sizeof(uint16_t),1,read);
   while (!feof(read)){
     aux = ntohs(num);
       if (aux % 3 != 0){
        fwrite(&num,sizeof(uint16_t),1,write);
        bytes += sizeof(uint16_t);
      }
-     cantLeido = fread(&num,sizeof(uint16_t),1,read);
+     fread(&num,sizeof(uint16_t),1,read);
   }
    ftruncate(fileno(write),bytes);
 }
