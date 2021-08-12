@@ -31,16 +31,16 @@ void procesarArchivo(const char* path){
       numero += caracter * potencia;
       potencia = potencia << 4;
     }
-    bytes += sprintf(numeroTexto,"%d",numero);
+    int caracteres = sprintf(numeroTexto,"%d",numero);
 
-    fwrite(numeroTexto,sizeof(char),bytes,write);
+    fwrite(numeroTexto,sizeof(char),caracteres,write);
     fwrite(&enter,sizeof(char),1,write);
-    bytes++;
+    bytes = caracteres + 1;
     numero = 0;
     potencia = 1;
     cantLeido = fread(hexa,sizeof(char),5,read);
   }
-  ftruncate(fileno(write),bytes - 1);
+  ftruncate(fileno(write),bytes);
   fclose(write);
   fclose(read);
 }

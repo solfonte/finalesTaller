@@ -16,7 +16,7 @@ Al lanzar el thread, lo hacemos de la siguiente manera por ejemplo:
 ```c
 std::thread(f,1);
 ```
-Al finalizar su ejecucion debe ejecutarse el ```join()``` para que pueda sincronizarse su ejecucion con la ejecucion de la funcion que lo lanzo.  
+Luego, debemos esperar a que los hilos terminen sincronizando las ejecuciones con join.  
 
 **3) ¿Qué finalidad tiene la palabra virtual antepuesta a un método? Ejemplifique.**
 

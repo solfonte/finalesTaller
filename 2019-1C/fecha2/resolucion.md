@@ -27,7 +27,7 @@ Por ejemplo,
 .
 #endif
 ```
-Si ```__CLASE__``` ya fue definido, entonces ejecuta directamente a la directiva ```#endif```. Si no, la define.  
+Si ```__CLASE__``` ya fue definido, entonces salta directamente a la directiva ```#endif```. Si no, la define.  
 
 **6) Escriba un programa C que tome 2 cadenas por línea de comandos: A y B; e imprima la cadena A después de haber duplicado todas las ocurrencias de B..**  
 **ej.: reemp.exe “Este es el final” final -----> Este es el final final**
@@ -47,7 +47,7 @@ resuelto en otra fecha
     ```
   **c) Definición de un caracter solamente visible en el módulo donde se define.**  
   ```
-  static char c = 'a';
+  static char c;
   ```
 
 **8) ¿Qué valor arroja sizeof(int)? Justifique .**  
