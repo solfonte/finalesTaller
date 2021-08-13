@@ -1,7 +1,3 @@
-/*
-asumo que la clase T tiene implementado el operador ==
-*/
-
 #include <list>
 #include <iterator>
 

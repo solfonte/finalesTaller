@@ -13,13 +13,13 @@ f es un puntero a una funcion. Esta recibe a su vez un puntero a un entero de 2 
 
 ```c
 main(){
-int *Pi=1000;
-Pi++;
-printf(“Pi apunta a la dirección: %l”, (long)Pi);
+  int *Pi=1000;
+  Pi++;
+  printf(“Pi apunta a la dirección: %l”, (long)Pi);
 }
 ```  
 
-En este codigo se define un puntero a un entero y se inicializa con el valor 1000. Esto significa que el puntero apunta a la direccion 1000 de memoria. Cuando se incrementa el puntero haciendo Pi++, se incrementa la direccion de memoria. Como este es un puntero a un entero, la direccion se incrementa en cuatro direcciones de memoria, ya que un entero tiene un tamanio de 4 bytes (en una arquitectura de 32 bits), con lo cual su representacion ocupara 4 direcciones de memoria. El resultado sera 1000 + 100 = 1100 ya que 100 = 4 en binario. Lo que se imprime por pantalla es: ``` Pi apunta a la direccion: 12```
+En este codigo se define un puntero a un entero y se inicializa con el valor 1000. Esto significa que el puntero apunta a la direccion 1000 de memoria. Cuando se incrementa el puntero haciendo Pi++, se incrementa la direccion de memoria. Como este es un puntero a un entero, suponiendo una arquitectura de 32 bits, la direccion se incrementa en cuatro direcciones de memoria ya que un entero tiene un tamanio de 4 bytes (si fuese de 64 bits, el tamanio del entero seria de 8 bytes), con lo cual su representacion ocupara 4 direcciones de memoria. El resultado sera 1000 + 100 = 1100 ya que 100 = 4 en binario. Lo que se imprime por pantalla es: ``` Pi apunta a la direccion: 12```
 
 **4) ¿Qué es un functor? ¿Qué ventaja ofrece frente a una función convencional? Ejemplifique.**  
 
@@ -46,14 +46,13 @@ Class Lista{
   int* l;
   public:
     Lista(int cantidadElementos){
-      l = (int)malloc(sizeof(int) * cantidadElementos);
+      l = (int*)malloc(sizeof(int) * cantidadElementos);
     }
     ~Lista(){
       free(l);
     }
 }
 ```
-
 
 **9) Escribir un programa ISO C que procese el archivo de enteros de 2 bytes bigendian cuyo nombre es recibido como parámetro. El procesamiento consiste en eliminar los número múltiplos de 3, trabajando sobre el mismo archivo (sin archivos intermedios ni en memoria).**  
 

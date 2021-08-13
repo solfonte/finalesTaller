@@ -35,7 +35,7 @@ void procesarArchivo(const char* path){
 
     fwrite(numeroTexto,sizeof(char),caracteres,write);
     fwrite(&enter,sizeof(char),1,write);
-    bytes = caracteres + 1;
+    bytes += caracteres + 1;
     numero = 0;
     potencia = 1;
     cantLeido = fread(hexa,sizeof(char),5,read);

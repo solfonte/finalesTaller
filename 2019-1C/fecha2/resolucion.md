@@ -43,7 +43,7 @@ resuelto en otra fecha
   ```
   **b) Declaración de un puntero a puntero a entero sin signo.**  
     ```
-    unsigned int **p;
+    extern unsigned int **p;
     ```
   **c) Definición de un caracter solamente visible en el módulo donde se define.**  
   ```

@@ -5,7 +5,7 @@ resuelto en ejercicio1.c
 **2) Escriba las siguientes definiciones/declaraciones:**  
 **A) Declaración de un puntero a puntero a entero largo con signo.**  
  ```
- long int** entero;
+ extern long int** entero;
  ```    
 **B) Definición de una la función RESTA, que tome dos enteros largos con signo y devuelva su resta. Esta función debe ser visible en todos los módulos del programa.**  
 ```
@@ -15,7 +15,7 @@ long int resta(long int number, long int otherNumber){
 ```  
 **C) Definición de un caracter solamente visible en el módulo donde se define.**   
 ```
-static char c = 'A';
+static char c;
 ```
 
 **3) Declare la clase TELEFONO para encapsular una cadena numérica correspondiente a un teléfono. Incluya al menos: Constructor(area, numero), Constructor move y Constructor de Copia; Operador <<, ==, =, long y >>. Implemente el operador >>.**   

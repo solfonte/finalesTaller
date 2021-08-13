@@ -20,7 +20,7 @@ Luego, debemos esperar a que los hilos terminen sincronizando las ejecuciones co
 
 **3) ¿Qué finalidad tiene la palabra virtual antepuesta a un método? Ejemplifique.**
 
-La finalidad es la declaracion de funciones que pueden ser redefinidas por clases derivadas a una clase. Asi, podemos aplicar polimorfismo. Por ejemplo:  
+La finalidad es la definicion de funciones que pueden ser redefinidas por clases derivadas a una clase. Asi, podemos aplicar polimorfismo. Por ejemplo:  
 ```c
 class Base {
 	public:
@@ -62,7 +62,7 @@ int b(){
 
 (a) es la declaracion de un arreglo de 25 punteros a int. Como esta declarado con la palabra extern, esto indica que es una variable definida en otro modulo. No se asigna memoria para esta declaracion, es un nombre y se inicializa en el modulo donde se definio.   
 (b) es la definicion de una funcion que no recibe parametros. Reside en el code segment y tiene un scope global.  
-(c) es la declaracion de una variable de tipo float. Como esta declarada con la palabra static, tiene un scope local a la funcion b y reside en el data segment. Se inicializa una vez al iniciarse la ejecucion del programa y se inicializa en cero ya que se inicializan con este valor las variables estaticas que no se les asigno un valor al compilarse el programa. Mantiene su valor entre ejecuciones de dicha funcion.    
+(c) es la definicion de una variable de tipo float. Como esta definida con la palabra static, tiene un scope local a la funcion b y reside en el data segment. Se inicializa una vez al iniciarse la ejecucion del programa y se inicializa en cero ya que se inicializan con este valor las variables estaticas que no se les asigno un valor al compilarse el programa. Mantiene su valor entre ejecuciones de dicha funcion.    
 (d) es la definicion de una variable de tipo char. Reside en el stack y tiene un scope local a esta funcion. Se inicializa al ejecutarse la linea donde se la define.  
 
 **7) Escriba una rutina que dibuje un rombo verde que ocupe toda la ventana.**

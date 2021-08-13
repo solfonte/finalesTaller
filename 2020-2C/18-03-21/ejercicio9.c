@@ -53,7 +53,7 @@ void procesarArchivo(const char* path){
 
     if (vocales >= 2){
       int i = 0;
-      fseek(read,-(letras + 1),SEEK_CUR);//el + 1 va por que escribi un espacio
+      fseek(read,-(letras + 1),SEEK_CUR);//el + 1 va por que escribi un espacio/enter
       while (i < letras){
         fread(&aux,sizeof(char),1,read);
         bytesTot += fwrite(&aux,sizeof(char),1,write);

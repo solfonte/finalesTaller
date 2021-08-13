@@ -4,7 +4,6 @@ Escribir un programa ISO C MULTIPLATAFORMA que procese el archivo “bigEndian.d
 */
 
 #include <inttypes.h>
-
 #include <stdio.h>
 #include <unistd.h>
 #include <arpa/inet.h>
@@ -35,7 +34,7 @@ int main(){
   }
   elemEscritos = 0;
   rewind(read);
-  fseek(write,0,SEEK_END);
+  fseek(write,0,SEEK_END);//creo que no hace falta
   while (elemEscritos < elementos){
     fread(&num,sizeof(uint32_t),1,read);
     elemEscritos += fwrite(&num,sizeof(uint32_t),1,write);

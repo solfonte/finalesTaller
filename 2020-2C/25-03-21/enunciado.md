@@ -32,7 +32,7 @@ resuelto en ejercicio5.cpp
 
 **6) Describa con exactitud las siguientes declaraciones/definiciones globales:**
 		**- char *(*A)();**: A es la declaracion de un puntero a una funcion que no recibe parametros y devuelve un puntero a un dato de tipo char. Es solo un nombre con lo cual no se reservan recursos.  
-		**- static int *(*C)[5];**: la declaracion de un puntero a un arreglo de punteros a int, de scope local al modulo declarado por haber sido declarado con static, y reside en el data segment.  
+		**- static int *(*C)[5];**: la definicion de un puntero a un arreglo de punteros a int, de scope local al modulo declarado por haber sido declarado con static, y reside en el data segment.  
 		**- short *B(){return NULL;}**: la definicion de una funcion B que devuelve un puntero a un short. Reside en el code segment y es de visibilidad global.  
 
 **7) Declare una clase a elección considerando:**
@@ -50,7 +50,7 @@ resuelto en ejercicio8.cpp
 
 **9) ¿Se puede evitar que un objeto de una clase sea copiado?¿y clonado?. En caso afirmativo explique cómo puede hacerse. En caso negativo explique por qué no se puede.**
 
-Se puede evitar que un objeto sea copiado. Lo que debemos hacer es eliminar su constructor copia y el operador asignacion por copia. Ademas podemos evitar que sea clonado, definiendo su constructor por movimiento. Asi, si se intentara clonar, en lugar de haber dos objetos siendo "duenios" de los mismos recursos, los recursos de uno se transfieren al otro.   
+Se puede evitar que un objeto sea copiado. Lo que debemos hacer es eliminar su constructor copia y el operador asignacion por copia.
 
 **10) ¿Qué es un thread?¿Qué recursos comparte con otros threads del mismo proceso?¿Cuales son exclusivos (no compartidos)?**  
 

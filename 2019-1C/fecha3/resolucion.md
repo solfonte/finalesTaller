@@ -10,11 +10,12 @@ resuelto en numero.h
 Es la sobrecarga del operador (). Se usa para definir objetos que pueden ser llamados como funciones. La ventaja de los functors es que permiten que la clase reciba los argumentos una vez, al momento de construirse por ejemplo, y que la clase se los guarde como atributos.
 
 Ejemplo:
+
 ```c
 class Sumador{
   std::list<int> n;
   public:
-    Sumador(std::list<int>& numeros): numeros(numeros);
+    Sumador(std::list<int>& numeros): numeros(numeros){}
     void operator()(){
       int acumulador = 0;
       for (auto it = n.begin(); it != n.end(); ++it){

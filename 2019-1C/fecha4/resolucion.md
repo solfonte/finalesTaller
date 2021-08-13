@@ -37,7 +37,7 @@ En archivo complejo.h
 
 **9) ¿Cómo se logra que 2 threads accedan (lectura/escritura) a un mismo recurso compartido sin que se generen problemas de consistencia? Ejemplifique.**  
 
-Lo que se hace para lograr esto es proteger el recurso compartido junto con una exclusion mutua (mutex). Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que si ocurriera un context switch, si otro hilo quiere acceder para modificarlo no podra ya que estara lockeado.Osea, el mutex nos permitirá forzar la ejecución de un código de forma exclusiva por un hilo a la vez. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
+Lo que se hace para lograr esto es proteger el recurso compartido junto con una exclusion mutua (mutex). Cuando un hilo accede al recurso, se realiza un lock de dicho mutex, que es unico para ese recurso, de manera que si ocurriera un context switch, si otro hilo quiere acceder para modificarlo no podra ya que estara lockeado. Osea, el mutex nos permitirá forzar la ejecución de un código de forma exclusiva por un hilo a la vez. Una vez que se haya realizado el unlock correspondiente, ahi puede acceder el otro hilo. Ejemplo:  
 
 
 ```
@@ -49,6 +49,7 @@ void incrementarContador(){
   contador++;
   m.unlock();
 }
+
 int main(){
   std::thread thread1(incrementarContador);
   std::thread thread2(incrementarContador);

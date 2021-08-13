@@ -18,6 +18,7 @@ más apariciones del mismo (sin considerar [CHAR_LIM]). Al recibir un paquete va
 #include <stdbool.h>
 #include <string.h>
 #include <string>
+#include <iostream>
 
 //no anda
 
@@ -51,47 +52,40 @@ int main(){
 
 //hasta aca servidor
 
-  char buff,aux = '0';
+  char buff,charlim = '0';
   std::string caracteres;
   bool termine = false;
   int corchete = 0, i = 0;
 
   while (!termine){
     recv(peer,&buff,sizeof(buff),0);
+    charlim = buff;
+    std::cout << "charlim: " << charlim << std::endl;
 
-    if (buff == '['){
-      aux = buff;
-      corchete++;
-      i++;
-    }else if (buff == ']'){
-      if (i == 2 && caracteres.empty()){
-        termine = true;
-      }else{
-        aux = '\0';
-        corchete = 0;
-        char mayor;
-        char otro;
-        int aparicionesMayor = 0;
-        int aparicionesOtro = 0;
-        std::string::iterator it1;
-        for (it1 = caracteres.begin(); it1 != caracteres.end(); ++it1){
-          std::string::iterator it2 = caracteres.begin();
-          otro = *it2;
-          for (;it2 != caracteres.end(); ++it2){
-            if (*it1 == *it2) aparicionesOtro ++;
-          }
-          if (aparicionesOtro > aparicionesMayor){
-            aparicionesMayor = aparicionesOtro;
-            mayor = otro;
-          }
-          aparicionesOtro = 0;
+    do{
+      recv(peer,&buff,sizeof(buff),0);
+      if (buff != charlim) caracteres.push_back(buff);
+    }while(buff != charlim);
+
+    if (caracteres.empty()){
+      termine = true;
+    }else{
+      char mayor, aux;
+      int mayorApariciones = 0, auxApariciones = 0;
+      for (std::string::iterator it1 = caracteres.begin(); it1 != caracteres.end(); ++it1){
+        std::string::iterator it2;
+        aux = *it1;
+        for (std::string::iterator it2 = caracteres.begin();it2 != caracteres.end(); ++it2){
+          if (aux == *it2) auxApariciones ++;
         }
-        printf("caracter con mas apariciones: %c",mayor);
+        if (mayorApariciones> auxApariciones && aux != mayor){
+          mayorApariciones = auxApariciones;
+          mayor = aux;
+        }
+        auxApariciones = 0;
         caracteres.clear();
       }
-    }else if (aux != '['){
-      caracteres.push_back(buff);
-      i = 0;
+      std::cout << "el que tiene mas apariciones es: " << mayor << std::endl;
     }
   }
 

@@ -15,7 +15,7 @@ class Numero{
     void operator()();
     Numero& operator=(Numero& otroNumero);
     operator long() const;
-    Numero operator(int);
+    Numero operator++(int);
     std::istream& operator>>(std::istream& in,Numero& numero){
       in >> numero;
       return in;

@@ -17,8 +17,8 @@ std::list<T> DobleSiNo(std::list<T> a,std::list<T> b){
         elementoEsta = true;
       }
     }
+    listaFinal.push_back(*aIt);
     if (!elementoEsta){
-      listaFinal.push_back(*aIt);
       listaFinal.push_back(*aIt);
     }
   }
