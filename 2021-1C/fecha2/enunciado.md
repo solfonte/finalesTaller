@@ -3,6 +3,8 @@
 
 **2) ¿Qué es una Condition Variable? Ejemplifique mediante código.**
 
+Es un estrutura que sirve para esperar alguna condicion. Por ejemplo:
+
 
 **3) Escribir un programa ISO C MULTIPLATAFORMA que procese el archivo “valores.txt” sobre sí mismo. El procesamiento consiste en leer números separados por 1 espacio que se encuentran en base 3 y escribirlos en 4 símbolos base hexadecimales, también separados por 1 espacio.**
 
