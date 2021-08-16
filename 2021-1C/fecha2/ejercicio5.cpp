@@ -15,15 +15,15 @@ void PurgarMapa(std::map<int,char>& map){
     auto value = it->second;
     bool valorRepetido = false;
     for (auto it2 = map.begin(); it2 != map.end(); ++it2){
-      if (key != it->first && it2->second == value){
+      if (key != it2->first && it2->second == value){
         valorRepetido = true;
+        std::cout << "emntro\n";
       }
     }
     if (!valorRepetido){
       aux.insert(std::pair<char,int>(key,value));
     }
   }
-  std::cout << "tamanio:" << aux.size() << std::endl;
   aux.swap(map);
 
 }
@@ -34,6 +34,7 @@ int main(){
   m.insert(std::pair<int,char>(1,'a'));
   m.insert(std::pair<int,char>(2,'a'));
   PurgarMapa(m);
-  auto it=m.begin();
+  std::cout << "tamanio:" << m.size() << std::endl;
+
   return 0;
 }
