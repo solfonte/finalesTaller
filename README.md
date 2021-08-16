@@ -74,6 +74,14 @@ https://wiki.cs.famaf.unc.edu.ar/lib/exe/fetch.php?media=algo1:curso-c.pdf
 * Los destructores se llaman automáticamente cuando el objeto se va de scope.
 * Todos los objetos tienen un destructor.
 * Las clases abstractas son las que tienen un método virtual puro.
+* **object slicing**: si tengo una clase Base y una clase Derivada que hereda de base, si tengo:
+```c
+  Derivada d;
+  Base b;
+  b = d;
+  ```
+b se va a quedar con la parte de Base de d, no es que b va a ser de tipo Derivada.
+
 
 Links:
   * https://taller-de-programacion.github.io/blog/2010/08/21/Constructor-de-copia-Orden.html
@@ -191,6 +199,11 @@ std::lock_guard<std::mutex> lck(this->mutex);
 ```
 Evita problemas de dead lock (cuando no se libera el mutex).   
 
+### Condition variables
+Usamos std::unique_lock<std::mutex> que nos da la posibilidad de desbloquear el mtex, a diferencia de lock_guard.
+```c
+#include <condition_variable>
+```
 # Sobrecarga de operadores
 
 Asignacion por copia
