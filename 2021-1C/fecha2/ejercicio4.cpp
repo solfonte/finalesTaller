@@ -5,17 +5,16 @@
 #include <queue>
 #include <chrono>
 
-int main()
-{
-    std::queue<int> produced_nums;
-    std::mutex m;
-    std::condition_variable cond_var;
-    bool done = false;
-    bool notified = false;
+int main(){
+
+  std::queue<int> produced_nums;
+  std::mutex m;
+  std::condition_variable cond_var;
+  bool done = false;
+  bool notified = false;
 
     std::thread producer([&]() {
         for (int i = 1; i <= 100; ++i) {
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
             std::unique_lock<std::mutex> lock(m);
             produced_nums.push(i);
             notified = true;
@@ -29,7 +28,7 @@ int main()
     std::thread consumer([&]() {
         std::unique_lock<std::mutex> lock(m);
         while (!done) {
-            while (!notified) {  // loop to avoid spurious wakeups
+            while (!notified) {
                 cond_var.wait(lock);
             }
             while (!produced_nums.empty()) {
